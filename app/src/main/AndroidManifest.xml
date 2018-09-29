@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mayintarlasi"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="com.example.mayintarlasi.AnaMenu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.OyunMenu"
+            android:label="@string/title_activity_oyun_menu" >
+            <intent-filter>
+                <action android:name="com.example.mayintarlasi.OyunMenu" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.Secenekler"
+            android:label="@string/title_activity_secenekler" >
+            <intent-filter>
+                <action android:name="com.example.mayintarlasi.Secenekler" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.Gorunum"
+            android:label="@string/title_activity_gorunum" >
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.YeniOyun"
+            android:label="@string/title_activity_yeni_oyun" >
+            <intent-filter>
+                <action android:name="android.intent.action.YeniOyun" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.Devamkaydet"
+            android:label="@string/title_activity_devamkaydet">
+            <intent-filter>
+                <action android:name="com.example.mayintarlasi.Devamkaydet" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
