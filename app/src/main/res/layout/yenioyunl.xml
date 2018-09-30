@@ -1,71 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/arkaplan"
-    android:stretchColumns="0,2" >
+    android:stretchColumns="0,2"
+	android:orientation="vertical">
 
-    <TableRow>
+	<TableLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<TableRow>
 
-		<TextView
-		    android:id="@+id/Timer"
-		    android:layout_width="fill_parent"
-		    android:layout_height="30dp"
-		    android:layout_column="0"
-		    android:layout_gravity="top"
-		    android:gravity="center_horizontal"
-		    android:text="000"
-		    android:textColor="#FFFFFF"
-		    android:textSize="25sp" />
-			
-		<ImageButton
-		    android:id="@+id/Smiley"
-		    android:layout_width="30dp"
-		    android:layout_height="30dp"
-		    android:layout_column="1"
-		    android:background="@drawable/smiley_button_states"
-		    android:padding="5dip"
-		    android:scaleType="center" />
-		
-		<TextView
-		    android:id="@+id/MineCount"
-		    android:layout_width="fill_parent"
-		    android:layout_height="30dp"
-		    android:layout_column="2"
-		    android:layout_gravity="top"
-		    android:gravity="center_horizontal"
-		    android:text="000"
-		    android:textColor="#FFFFFF"
-		    android:textSize="25sp" />
+			<TextView
+				android:id="@+id/Timer"
+				android:layout_width="0dp"
+				android:layout_height="30dp"
+				android:layout_weight="1"
+				android:layout_column="0"
+				android:layout_gravity="top"
+				android:gravity="center_horizontal"
+				android:text="000"
+				android:textColor="#FFFFFF"
+				android:textSize="25sp" />
 
-    </TableRow>
-    
-	<TableRow>
+			<ImageButton
+				android:id="@+id/Smiley"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:layout_column="1"
+				android:background="@drawable/smiley_button_states"
+				android:padding="5dip"
+				android:scaleType="center" />
 
-	</TableRow>
-		
-    <TableRow
-        android:layout_gravity="start"
-        android:layout_marginTop="5dp"
-        android:gravity="top" >
+			<TextView
+				android:id="@+id/MineCount"
+				android:layout_width="0dp"
+				android:layout_height="30dp"
+				android:layout_weight="1"
+				android:layout_gravity="top"
+				android:gravity="center_horizontal"
+				android:text="000"
+				android:textColor="#FFFFFF"
+				android:textSize="25sp" />
 
-		<TableLayout
-		    android:id="@+id/MineField"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    android:layout_gravity="start"
-		    android:layout_span="3"
-		    android:gravity="top"
-		    android:padding="1dp"
-		    android:stretchColumns="*" >
+		</TableRow>
+	</TableLayout>
 
-		</TableLayout>
-    </TableRow>
+	<RelativeLayout
+		android:id="@+id/MineField2"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1">
+	</RelativeLayout>
 
     <Button
         android:id="@+id/yCikisBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Çıkış" />
 
-</TableLayout>
+</LinearLayout>

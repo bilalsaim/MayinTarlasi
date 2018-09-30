@@ -42,7 +42,7 @@ public class Block extends Button
 		numberOfMinesInSurrounding = 0;
 		
 		if(AnaMenu.kare==1)
-		this.setBackgroundResource(R.drawable.kare1);
+			this.setBackgroundResource(R.drawable.kare1);
 		if(AnaMenu.kare==2)
 			this.setBackgroundResource(R.drawable.kare2);
 		if(AnaMenu.kare==3)
@@ -99,8 +99,6 @@ public class Block extends Button
 	// set block as disabled/opened if false is passed
 	public void setFlagIcon(boolean enabled)
 	{
-		
-
 		if (!enabled)
 		{
 			this.setBackgroundResource(R.drawable.flag);
@@ -142,14 +140,14 @@ public class Block extends Button
 		{
 			if(AnaMenu.kare==1)
 				this.setBackgroundResource(R.drawable.kare1);
-				if(AnaMenu.kare==2)
-					this.setBackgroundResource(R.drawable.kare2);
-				if(AnaMenu.kare==3)
-					this.setBackgroundResource(R.drawable.kare3);
-				if(AnaMenu.kare==4)
-					this.setBackgroundResource(R.drawable.kare4);
-				if(AnaMenu.kare==5)
-					this.setBackgroundResource(R.drawable.kare5);
+			if(AnaMenu.kare==2)
+				this.setBackgroundResource(R.drawable.kare2);
+			if(AnaMenu.kare==3)
+				this.setBackgroundResource(R.drawable.kare3);
+			if(AnaMenu.kare==4)
+				this.setBackgroundResource(R.drawable.kare4);
+			if(AnaMenu.kare==5)
+				this.setBackgroundResource(R.drawable.kare5);
 		}
 	}
 

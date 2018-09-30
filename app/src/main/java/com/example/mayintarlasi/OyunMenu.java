@@ -8,7 +8,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class OyunMenu extends Activity {
+
 	 private Button oyunMenuBtn;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		AnaMenu.a=7;

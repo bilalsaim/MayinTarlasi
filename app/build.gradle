@@ -19,5 +19,8 @@ android {
 }
 
 dependencies {
+    // Dependency on local binaries
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     compile 'com.android.support:support-v4:18.0.0'
 }

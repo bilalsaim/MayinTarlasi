@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.Devamkaydet"
+            android:name="com.example.mayintarlasi.DevamKaydet"
             android:label="@string/title_activity_devamkaydet">
             <intent-filter>
                 <action android:name="com.example.mayintarlasi.Devamkaydet" />

@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,14 +57,6 @@ public class AnaMenu extends Activity {
 	  //gorunuml.xml değişkenleri
 	  private Button gkaydetBtn;
 	  private Button ggeriBtn;
-	  private RadioButton rKare1;
-	  private RadioButton rKare2;
-	  private RadioButton rKare3;
-	  private RadioButton rKare4;
-	  private RadioButton rKare5;
-	  private RadioButton rMayin1;
-	  private RadioButton rMayin2;
-	  private RadioButton rMayin3;
 
 	  static int a;
 	@Override
@@ -74,25 +65,21 @@ public class AnaMenu extends Activity {
 		setContentView(R.layout.anamenul);
 
 
-
 		cikisBtn = (Button) findViewById(R.id.cikisb);
-
 
 		cikisBtn.setOnClickListener(new OnClickListener() {
 	      public void onClick(View view) {
 	    	  finish();
-	            System.exit(0);
+	          System.exit(0);
 	      }
 	    });
 
 		oyunMenuBtn = (Button) findViewById(R.id.oyunb);
 
-
 		oyunMenuBtn.setOnClickListener(new OnClickListener() {
 	      public void onClick(View view) {
 
 	    	  setContentView(R.layout.oyunmenul);
-
 
 	    	  gerib = (Button) findViewById(R.id.gerib);
 
@@ -119,8 +106,8 @@ public class AnaMenu extends Activity {
 				  else
 				  		deger = width /genislik;
 
-				  kG = (int) deger;
-				  kY = (int) deger;
+				  kG = 16;
+				  kY = 16;
 		    	  startActivity(new Intent("android.intent.action.YeniOyun"));
 		      }
 			    });
@@ -192,7 +179,7 @@ public class AnaMenu extends Activity {
 
 		  	    	skaydetBtn.setOnClickListener(new OnClickListener() {
 		  		      public void onClick(View view) {
-		  		    	  boolean dKaydet=false;
+		  		    	boolean dKaydet=false;
 		  		    	int mayinS= Integer.parseInt(mayinTBox.getText().toString());
 		  		    	int genisS= Integer.parseInt(genislikTextBox.getText().toString());
 		  		    	int yuksekS= Integer.parseInt(yukseklikTextBox.getText().toString());

@@ -1,12 +1,17 @@
 package com.example.mayintarlasi;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
@@ -24,8 +30,11 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class YeniOyun extends Activity {
+import pl.polidea.view.ZoomView;
 
+public class YeniOyun extends FragmentActivity {
+
+    private ZoomView zoomView;
 	private TextView txtMineCount;
 	private TextView txtTimer;
 	private ImageButton smileBtn;
@@ -58,12 +67,16 @@ public class YeniOyun extends Activity {
 	boolean kontrol=false;
 	String kod="";
 	
-	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.yenioyunl);
-		
+
+
 		veri=new VeriTabani(this);
 		
 		yCikisBtn = (Button) findViewById(R.id.yCikisBtn);
@@ -88,69 +101,70 @@ public class YeniOyun extends Activity {
 				kontrol=true;
 			}
 		});
-		
-		mineField = (TableLayout)findViewById(R.id.MineField);
-		
-		
-		
 
-		
+
 		yCikisBtn.setOnClickListener(new OnClickListener() {
 	      public void onClick(View view) {
-	    	  if(kontrol)
-  	    	  {
-	    		  oyunSablonu();
-	    	  setContentView(R.layout.devamkaydetl);
-	    	  
-	    	  
-	    	  dkKullaniciEditText = (EditText)findViewById(R.id.dkKullaniciEditText);
-	  	    	dkSifreEditText =(EditText) findViewById(R.id.dkSifreEditText);
-	    	  dkKullaniciEditText.setText(kod);
-	    	  dkKaydetBtn = (Button) findViewById(R.id.dkKaydetBtn);
-	    	  
-		  		
-	    	  dkKaydetBtn.setOnClickListener(new OnClickListener() {
-	  	      public void onClick(View view) {
-	  	    	 
-	  	    	
-	  	    			if(dkKullaniciEditText.getText().toString()!=""||dkKullaniciEditText.getText().toString()==null
-	  	    			|| dkSifreEditText.getText().toString()!="" ||dkSifreEditText.getText().toString()==null  )
-	  	    				{
-	  	    				
-	  	    					kayitEkleme(dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString(),"ddd");
-	  	    					veri.close();
-	  	    	
-	  	    					Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-	  	    					startActivity(intent);
-	  	    				}
-	  	    			else
-	  	    				{
-	  	    					showDialog("Kullanıcı Adı ve Şifre Boş Bırakılamaz!", 2000, true, false);
-	  	    				}
-	  	    	  
-	  	    	  }
-	    	  });
-	    	    
-  	    	  }
-	    	  else
-  	    	  {
-  	    		Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-					startActivity(intent);
-  	    	  }
+          if(kontrol)
+          {
+            oyunSablonu();
+            setContentView(R.layout.devamkaydetl);
+            dkKullaniciEditText = (EditText)findViewById(R.id.dkKullaniciEditText);
+            dkSifreEditText =(EditText) findViewById(R.id.dkSifreEditText);
+            dkKullaniciEditText.setText(kod);
+            dkKaydetBtn = (Button) findViewById(R.id.dkKaydetBtn);
+
+            dkKaydetBtn.setOnClickListener(new OnClickListener() {
+            public void onClick(View view) {
+
+                if(dkKullaniciEditText.getText().toString()!=""||dkKullaniciEditText.getText().toString()==null
+                    || dkSifreEditText.getText().toString()!="" ||dkSifreEditText.getText().toString()==null  )
+                {
+
+                    kayitEkleme(dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString(),"ddd");
+                    veri.close();
+
+                    Intent intent = new Intent(getBaseContext(), AnaMenu.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    showDialog("Kullanıcı Adı ve Şifre Boş Bırakılamaz!", 2000, true, false);
+                }
+
+              }
+            });
+
+          }
+          else
+          {
+            Intent intent = new Intent(getBaseContext(), AnaMenu.class);
+            startActivity(intent);
+          }
 	    	  
 	  	      
 	  	    
 	      }
 	    });
-		
-		
-		
-	}
 
-	
+
+        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.mayinalani, null, false);
+        v.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1));
+
+
+        mineField = (TableLayout) v.findViewById(R.id.MineField);
+
+        zoomView = new ZoomView(this);
+        zoomView.addView(v);
+
+        RelativeLayout main_container = (RelativeLayout) findViewById(R.id.MineField2);
+        main_container.addView(zoomView);
+
+    }
+
 	private void oyunSablonu()
 	{
-		
+
 		for(int i=1;i<satirSayisi+ 1;i++)
 		{
 			for(int j=1;j<sutunSayisi+ 1;j++)
@@ -184,11 +198,11 @@ public class YeniOyun extends Activity {
 					kod+="6";
 				}
 			}
-			
+
 		}
-			
+
 	}
-	
+
 	private void kayitEkleme(String a,String b,String c){
 		SQLiteDatabase db = veri.getWritableDatabase();
 		ContentValues veriler = new ContentValues();
@@ -196,15 +210,15 @@ public class YeniOyun extends Activity {
 		veriler.put("sifre", b);
 		veriler.put("dizilis", c);
 		db.insertOrThrow("Devam", null, veriler);
-		}
-	
+	}
+
 	private void startNewGame()
 	{
 		// plant mines and do rest of the calculations
 		createMineField();
 		// display all blocks in UI
 		showMineField();
-		
+
 		minesToFind = totalNumberOfMines;
 		isOyunBitti = false;
 		secondsPassed = 0;
@@ -216,18 +230,18 @@ public class YeniOyun extends Activity {
 		// they are used for calculation purposes only
 		for (int row = 1; row < satirSayisi + 1; row++)
 		{
-			TableRow tableRow = new TableRow(this);  
+			TableRow tableRow = new TableRow(this);
 			tableRow.setLayoutParams(new LayoutParams(blockBoyutu + 2 * blockBoslugu, blockBoyutu + 2 * blockBoslugu*10));
 
 			for (int column = 1; column < sutunSayisi + 1; column++)
 			{
-				blocks[row][column].setLayoutParams(new LayoutParams(  
-						blockBoyutu + 2 * blockBoslugu,  
+				blocks[row][column].setLayoutParams(new LayoutParams(
+						blockBoyutu + 2 * blockBoslugu,
 						blockBoyutu + 2 * blockBoslugu*10));
 				blocks[row][column].setPadding(blockBoslugu, blockBoslugu, blockBoslugu, blockBoslugu);
 				tableRow.addView(blocks[row][column]);
 			}
-			mineField.addView(tableRow,new TableLayout.LayoutParams(  
+			mineField.addView(tableRow,new TableLayout.LayoutParams(
 					(blockBoyutu + 2 * blockBoslugu), blockBoyutu + 2 * blockBoslugu*10));
 		}
 	}
@@ -238,10 +252,10 @@ public class YeniOyun extends Activity {
 		txtTimer.setText("000"); // revert all text
 		txtMineCount.setText("000"); // revert mines count
 		smileBtn.setBackgroundResource(R.drawable.smile);
-		
+
 		// remove all rows from mineField TableLayout
 		mineField.removeAllViews();
-		
+
 		// set all variables to support end of game
 		isZamanKontrol = false;
 		areMinesSet = false;
@@ -267,12 +281,12 @@ public class YeniOyun extends Activity {
 		for (int row = 0; row < satirSayisi + 2; row++)
 		{
 			for (int column = 0; column < sutunSayisi + 2; column++)
-			{	
+			{
 				blocks[row][column] = new Block(this);
 				blocks[row][column].setDefaults();
 
 				// pass current row and column number as final int's to event listeners
-				// this way we can ensure that each event listener is associated to 
+				// this way we can ensure that each event listener is associated to
 				// particular instance of block only
 				final int currentRow = row;
 				final int currentColumn = column;
@@ -308,7 +322,7 @@ public class YeniOyun extends Activity {
 						{
 							// open nearby blocks till we get numbered blocks
 							rippleUncover(currentRow, currentColumn);
-							
+
 							// did we clicked a mine
 							if (blocks[currentRow][currentColumn].hasMine())
 							{
@@ -388,7 +402,7 @@ public class YeniOyun extends Activity {
 						}
 
 						// if clicked block is enabled, clickable or flagged
-						if (blocks[currentRow][currentColumn].isClickable() && 
+						if (blocks[currentRow][currentColumn].isClickable() &&
 								(blocks[currentRow][currentColumn].isEnabled() || blocks[currentRow][currentColumn].isFlagged()))
 						{
 
@@ -431,7 +445,7 @@ public class YeniOyun extends Activity {
 								// remove flagged status
 								blocks[currentRow][currentColumn].setFlagged(false);
 							}
-							
+
 							updateMineCountDisplay(); // update mine display
 						}
 
@@ -525,7 +539,7 @@ public class YeniOyun extends Activity {
 			{
 				// disable block
 				blocks[row][column].setBlockAsDisabled(false);
-				
+
 				// block has mine and is not flagged
 				if (blocks[row][column].hasMine() && !blocks[row][column].isFlagged())
 				{
@@ -585,7 +599,7 @@ public class YeniOyun extends Activity {
 
 		int nearByMineCount;
 
-		// count number of mines in surrounding blocks 
+		// count number of mines in surrounding blocks
 		for (int row = 0; row < satirSayisi + 2; row++)
 		{
 			for (int column = 0; column < sutunSayisi + 2; column++)
@@ -649,7 +663,7 @@ public class YeniOyun extends Activity {
 						&& (rowClicked + row - 1 < satirSayisi + 1) && (columnClicked + column - 1 < sutunSayisi + 1))
 				{
 					rippleUncover(rowClicked + row - 1, columnClicked + column - 1 );
-				} 
+				}
 			}
 		}
 		return;
@@ -657,7 +671,7 @@ public class YeniOyun extends Activity {
 
 	public void startTimer()
 	{
-		if (secondsPassed == 0) 
+		if (secondsPassed == 0)
 		{
 			timer.removeCallbacks(updateTimeElasped);
 			// tell timer to run call back after 1 second
@@ -691,7 +705,7 @@ public class YeniOyun extends Activity {
 			{
 				txtTimer.setText(Integer.toString(secondsPassed));
 			}
- 
+
 			// add notification
 			timer.postAtTime(this, currentMilliseconds);
 			// notify to call back after 1 seconds
@@ -699,7 +713,7 @@ public class YeniOyun extends Activity {
 			timer.postDelayed(updateTimeElasped, 1000);
 		}
 	};
-	
+
 	private void showDialog(String message, int milliseconds, boolean useSmileImage, boolean useCoolImage)
 	{
 		// show message
