@@ -1,6 +1,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Yenioyun" >
+    tools:context=".KayitliOyna" >
 <ScrollView
         android:id="@+id/yeniOForm"
         android:layout_width="match_parent"
@@ -74,13 +74,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Çıkış" />
-
-    <TextView
-        android:id="@+id/textV8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </TableLayout>
 </ScrollView>

@@ -9,5 +9,12 @@
     <string name="title_activity_secenekler">Secenekler</string>
     <string name="title_activity_gorunum">Gorunum</string>
     <string name="title_activity_yeni_oyun">YeniOyun</string>
+    <string name="title_activity_yardim">Yardim</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_istatistikler">Istatistikler</string>
+    <string name="title_activity_oyun_olustur">OyunOlustur</string>
+    <string name="title_activity_kayit_listele">KayitListele</string>
+    <string name="title_activity_kayitli_oyna">KayitliOyna</string>
 
 </resources>

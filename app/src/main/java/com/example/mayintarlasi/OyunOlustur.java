@@ -30,25 +30,16 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-public class YeniOyun extends Activity {
+public class OyunOlustur extends Activity {
 
 	int oyunTipi;
 
-	//devamkaydetl
-	private Button dOyun1;
-	private Button dOyun2;
-	private Button dOyun3;
-	private Button dOyun4;
-	private Button dOyun5;
+	private EditText isimText;
+
 	private Button yCikisBtn;
-	private Button dkKaydetBtn;
-	private EditText dkKullaniciEditText;
-	private EditText dkSifreEditText;
-	private Button dkKayitBtn;
-	private Button dkCikisBtn;
+
 	private TextView textViewMayinSayisi;
 	private TextView textViewZaman;
-	private TextView textView1;
 	private ImageButton smileBtn;
 
 	private TableLayout mineField;
@@ -86,7 +77,7 @@ public class YeniOyun extends Activity {
 	{
 		super.onCreate(savedInstanceState);
 		veri=new VeriTabani(this);
-		setContentView(R.layout.yenioyunl);
+		setContentView(R.layout.oyunolusturl);
 		if(satirSayisi==9&&sutunSayisi==9)
 			oyunTipi=0;
 		else if(satirSayisi==16&&sutunSayisi==16)
@@ -106,7 +97,6 @@ public class YeniOyun extends Activity {
 
 		textViewMayinSayisi = (TextView) findViewById(R.id.MineCount);
 		textViewZaman = (TextView) findViewById(R.id.Timer);
-		textView1 = (TextView) findViewById(R.id.textV8);
 
 		ses=MediaPlayer.create(this, R.raw.bomb);
 		ses2=MediaPlayer.create(this, R.raw.oh);
@@ -127,120 +117,47 @@ public class YeniOyun extends Activity {
 				kontrol=true;
 
 
-				if(AnaMenu.devamKontrol)
-				{
-					degistir();
-				}
-				AnaMenu.devamKontrol=false;
+
+				degistir();
+
 			}
 		});
 
 		mineField = (TableLayout)findViewById(R.id.MineField);
 
-
+		isimText = (EditText) findViewById(R.id.isimText);
 
 
 
 		yCikisBtn.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				if(kontrol)
+
+				for(int x=0;x<satirSayisi;x++)
 				{
-					oyunSablonu();
-					setContentView(R.layout.devamkaydetl);
-
-					dOyun1 = (Button) findViewById(R.id.dOyun1);
-					dOyun2 = (Button) findViewById(R.id.dOyun2);
-					dOyun3 = (Button) findViewById(R.id.dOyun3);
-					dOyun4 = (Button) findViewById(R.id.dOyun4);
-					dOyun5 = (Button) findViewById(R.id.dOyun5);
-
-					dOyun1.setVisibility(View.INVISIBLE);
-					dOyun2.setVisibility(View.INVISIBLE);
-					dOyun3.setVisibility(View.INVISIBLE);
-					dOyun4.setVisibility(View.INVISIBLE);
-					dOyun5.setVisibility(View.INVISIBLE);
-
-
-					dkCikisBtn = (Button) findViewById(R.id.dkCikisBtn);
-
-					dkCikisBtn.setOnClickListener(new OnClickListener() {
-						public void onClick(View view) {
-							Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-							startActivity(intent);
-
-						}
-					});
-
-					dkKayitBtn = (Button) findViewById(R.id.dkKayitBtn);
-					dkKayitBtn.setOnClickListener(new OnClickListener() {
-						public void onClick(View view) {
-							if(!dkKullaniciEditText.getText().toString().equals("") && !dkSifreEditText.getText().toString().equals("")   )
-							{
-								Cursor cursor = KayitGetir();
-								if(KayitKontrol(cursor,dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString()))
-								{
-									showDialog("Girilen kullanıcı sistemde mevcut!", 2000, true, false);
-								}
-								else
-								{
-									kayitEkleme(dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString(),kod,satirSayisi,sutunSayisi);
-									veri.close();
-									Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-									startActivity(intent);
-								}
-
-							}
-							else
-							{
-								showDialog("Kullanıcı Adı ve Şifre Boş Bırakılamaz!", 2000, true, false);
-							}
-						}
-					});
-
-					dkKullaniciEditText = (EditText)findViewById(R.id.dkKullaniciEditText);
-					dkSifreEditText =(EditText) findViewById(R.id.dkSifreEditText);
-
-					dkKaydetBtn = (Button) findViewById(R.id.dkKaydetBtn);
-
-
-					dkKaydetBtn.setOnClickListener(new OnClickListener() {
-						public void onClick(View view) {
-
-
-							if(!dkKullaniciEditText.getText().toString().equals("")&& !dkSifreEditText.getText().toString().equals("")   )
-							{
-								Cursor cursor = KayitGetir();
-								if(KayitKontrol2(cursor,dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString()))
-								{kayitEkleme(dkKullaniciEditText.getText().toString(),dkSifreEditText.getText().toString(),kod,satirSayisi,sutunSayisi);
-									veri.close();
-									Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-									startActivity(intent);
-
-								}
-								else
-								{
-									showDialog("Girilen kullanıcı sistemde mevcut değil yada şifre yanlış!", 2000, true, false);
-								}
-							}
-							else
-							{
-								showDialog("Kullanıcı Adı ve Şifre Boş Bırakılamaz!", 2000, true, false);
-							}
-
-						}
-					});
-
-				}
-				else
-				{
-					Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-					startActivity(intent);
+					for(int y=0;y<sutunSayisi;y++)
+					{
+						if(blocks[x][y].hasMine())
+							kod+=1;
+						else
+							kod+=0;
+					}
 				}
 
+				SQLiteDatabase db = veri.getWritableDatabase();
+				ContentValues veriler = new ContentValues();
 
+				veriler.put("isim", isimText.getText().toString());
+				veriler.put("dizilis", kod);
+				veriler.put("satir", satirSayisi);
+				veriler.put("sutun", sutunSayisi);
+				db.insertOrThrow("kayitli", "kullanici", veriler);
+				veri.close();
 
+				Intent intent = new Intent(getBaseContext(), AnaMenu.class);
+				startActivity(intent);
 			}
 		});
+
 
 
 
@@ -255,212 +172,25 @@ public class YeniOyun extends Activity {
 		return cursor;
 	}
 
-	private boolean KayitKontrol(Cursor cursor,String gKullanici,String gSifre) {
-		boolean deger=false;
-
-		while(cursor.moveToNext()){
 
 
-			String kullanici = cursor.getString((cursor.getColumnIndex("kullanici")));
-			String sifre = cursor.getString((cursor.getColumnIndex("sifre")));
 
-			if(gKullanici.equals(kullanici))
-			{
-				deger=true;
-			}
-		}
-
-		return deger;
-	}
-
-	private boolean KayitKontrol2(Cursor cursor,String gKullanici,String gSifre) {
-		boolean deger=false;
-
-		while(cursor.moveToNext()){
-
-
-			String kullanici = cursor.getString((cursor.getColumnIndex("kullanici")));
-			String sifre = cursor.getString((cursor.getColumnIndex("sifre")));
-
-			if(gKullanici.equals(kullanici)&&gSifre.equals(sifre))
-			{
-				deger=true;
-			}
-		}
-
-		return deger;
-	}
 
 	private void degistir() {
 		for(int x=0;x<satirSayisi;x++)
 		{
 			for(int y=0;y<sutunSayisi;y++)
 			{
-				if(AnaMenu.tablo[x][y]==1)
-				{
-					blocks[x][y].deleteMine();
-				}
-				else if(AnaMenu.tablo[x][y]==2)
-				{
-					blocks[x][y].deleteMine();
-				}
-				else if(AnaMenu.tablo[x][y]==3)
-				{
-					blocks[x][y].plantMine();
-				}
-				else if(AnaMenu.tablo[x][y]==4)
-				{
 
-					blocks[x][y].deleteMine();
-				}
-				else if(AnaMenu.tablo[x][y]==5)
-				{
-					blocks[x][y].plantMine();
-				}
-				else if(AnaMenu.tablo[x][y]==6)
-				{
-					blocks[x][y].deleteMine();
-				}
-				else if(AnaMenu.tablo[x][y]==7)
-				{
-					blocks[x][y].plantMine();
-				}
-			}
-		}
-
-		int nearByMineCount;
-
-
-		for (int satir = 0; satir < satirSayisi + 2; satir++)
-		{
-			for (int sutun = 0; sutun < sutunSayisi + 2; sutun++)
-			{
-
-				nearByMineCount = 0;
-				if ((satir != 0) && (satir != (satirSayisi + 1)) && (sutun != 0) && (sutun != (sutunSayisi + 1)))
-				{
-
-					for (int ilerikiSatir = -1; ilerikiSatir < 2; ilerikiSatir++)
-					{
-						for (int ilerikiSutun = -1; ilerikiSutun < 2; ilerikiSutun++)
-						{
-							if (blocks[satir + ilerikiSatir][sutun + ilerikiSutun].hasMine())
-							{
-
-								nearByMineCount++;
-							}
-						}
-					}
-
-					blocks[satir][sutun].setNumberOfMinesInSurrounding(nearByMineCount);
-				}
-
-				else
-				{
-					blocks[satir][sutun].setNumberOfMinesInSurrounding(9);
-					blocks[satir][sutun].OpenBlock();
-				}
+				blocks[x][y].deleteMine();
 			}
 		}
 
 
-		for(int x=0;x<satirSayisi;x++)
-		{
-			for(int y=0;y<sutunSayisi;y++)
-			{
-				if(AnaMenu.tablo[x][y]==1)
-				{
-					blocks[x][y].deleteMine();
-					blocks[x][y].setFlagged(false);
-					blocks[x][y].setQuestionMarked(false);
-					blocks[x][y].OpenBlock();
-				}
-				else if(AnaMenu.tablo[x][y]==2)
-				{
-					blocks[x][y].deleteMine();
-					blocks[x][y].setFlagged(false);
-					blocks[x][y].setQuestionMarked(false);
-				}
-				else if(AnaMenu.tablo[x][y]==3)
-				{
-					blocks[x][y].plantMine();
-					blocks[x][y].setFlagged(false);
-					blocks[x][y].setQuestionMarked(false);
-				}
-				else if(AnaMenu.tablo[x][y]==4)
-				{
-
-					blocks[x][y].deleteMine();
-					blocks[x][y].setFlagged(true);
-					blocks[x][y].setFlagIcon(true);
-					blocks[x][y].setQuestionMarked(false);
-				}
-				else if(AnaMenu.tablo[x][y]==5)
-				{
-					blocks[x][y].plantMine();
-					blocks[x][y].setFlagged(true);
-					blocks[x][y].setFlagIcon(true);
-					blocks[x][y].setQuestionMarked(false);
-				}
-				else if(AnaMenu.tablo[x][y]==6)
-				{
-					blocks[x][y].deleteMine();
-					blocks[x][y].setFlagged(false);
-					blocks[x][y].setQuestionMarked(true);
-					blocks[x][y].setQuestionMarkIcon(true);
-				}
-				else if(AnaMenu.tablo[x][y]==7)
-				{
-					blocks[x][y].plantMine();
-					blocks[x][y].setFlagged(false);
-					blocks[x][y].setQuestionMarked(true);
-					blocks[x][y].setQuestionMarkIcon(true);
-				}
-			}
-		}
 	}
 
 
-	private void oyunSablonu()
-	{
 
-		for(int i=1;i<satirSayisi+ 1;i++)
-		{
-			for(int j=1;j<sutunSayisi+ 1;j++)
-			{
-				if(!blocks[i][j].hasMine()&&!blocks[i][j].isFlagged()&&!blocks[i][j].isQuestionMarked()&&!blocks[i][j].isCovered())
-				{
-					kod+="1";
-				}
-				else if(!blocks[i][j].hasMine()&&!blocks[i][j].isFlagged()&&!blocks[i][j].isQuestionMarked()&&blocks[i][j].isCovered())
-				{
-					kod+="2";
-				}
-				else if(blocks[i][j].hasMine()&&!blocks[i][j].isFlagged()&&!blocks[i][j].isQuestionMarked()&&blocks[i][j].isCovered())
-				{
-					kod+="3";
-				}
-				else if(!blocks[i][j].hasMine()&&blocks[i][j].isFlagged()&&!blocks[i][j].isQuestionMarked())
-				{
-					kod+="4";
-				}
-				else if(blocks[i][j].hasMine()&&blocks[i][j].isFlagged()&&!blocks[i][j].isQuestionMarked())
-				{
-					kod+="5";
-				}
-				else if(!blocks[i][j].hasMine()&&!blocks[i][j].isFlagged()&&blocks[i][j].isQuestionMarked())
-				{
-					kod+="6";
-				}
-				else if(blocks[i][j].hasMine()&&!blocks[i][j].isFlagged()&&blocks[i][j].isQuestionMarked())
-				{
-					kod+="7";
-				}
-			}
-
-		}
-
-	}
 
 	private void kayitEkleme(String a,String b,String c,int d,int e){
 		SQLiteDatabase db = veri.getWritableDatabase();
@@ -547,42 +277,21 @@ public class YeniOyun extends Activity {
 					@Override
 					public void onClick(View view)
 					{
-
-						if (!isZamanKontrol)
+						if(!blocks[gecerliSatir][gecerliSutun].hasMine())
 						{
-							zamanaiBaslat();
-							isZamanKontrol = true;
+							blocks[gecerliSatir][gecerliSutun].plantMine();
+
+							blocks[gecerliSatir][gecerliSutun].setMineIcon(false);
+						}
+						else
+						{
+							blocks[gecerliSatir][gecerliSutun].deleteMine();
+
+							blocks[gecerliSatir][gecerliSutun].setBlockAsDisabled(true);
 						}
 
 
-						if (!areMinesSet)
-						{
-							areMinesSet = true;
-							setMines(gecerliSatir, gecerliSutun);
-						}
 
-
-						if (!blocks[gecerliSatir][gecerliSutun].isFlagged())
-						{
-
-							rippleUncover(gecerliSatir, gecerliSutun);
-
-
-							if (blocks[gecerliSatir][gecerliSutun].hasMine())
-							{
-
-								oyunuBitir(gecerliSatir,gecerliSutun);
-							}
-
-
-							if (checkGameWin())
-							{
-
-								winGame();
-							}
-
-
-						}
 					}
 				});
 
@@ -590,101 +299,8 @@ public class YeniOyun extends Activity {
 				{
 					public boolean onLongClick(View view)
 					{
-						if(AnaMenu.soruI)
-						{
-							if (!blocks[gecerliSatir][gecerliSutun].isCovered() && (blocks[gecerliSatir][gecerliSutun].getNumberOfMinesInSorrounding() > 0) && !isOyunBitti)
-							{
-								int nearbyFlaggedBlocks = 0;
-								for (int ilerikiSatir = -1; ilerikiSatir < 2; ilerikiSatir++)
-								{
-									for (int ilerikiSutun = -1; ilerikiSutun < 2; ilerikiSutun++)
-									{
-										if (blocks[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].isFlagged())
-										{
-											nearbyFlaggedBlocks++;
-										}
-									}
-								}
-
-
-								if (nearbyFlaggedBlocks == blocks[gecerliSatir][gecerliSutun].getNumberOfMinesInSorrounding())
-								{
-									for (int ilerikiSatir = -1; ilerikiSatir < 2; ilerikiSatir++)
-									{
-										for (int ilerikiSutun = -1; ilerikiSutun < 2; ilerikiSutun++)
-										{
-
-											if (!blocks[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].isFlagged())
-											{
-
-												rippleUncover(gecerliSatir + ilerikiSatir, gecerliSutun + ilerikiSutun);
-
-
-												if (blocks[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].hasMine())
-												{
-
-													oyunuBitir(gecerliSatir + ilerikiSatir, gecerliSutun + ilerikiSutun);
-												}
-
-
-												if (checkGameWin())
-												{
-
-													winGame();
-												}
-											}
-										}
-									}
-								}
-
-
-								return true;
-							}
-
-
-							if (blocks[gecerliSatir][gecerliSutun].isClickable() &&
-									(blocks[gecerliSatir][gecerliSutun].isEnabled() || blocks[gecerliSatir][gecerliSutun].isFlagged()))
-							{
-
-
-								if (!blocks[gecerliSatir][gecerliSutun].isFlagged() && !blocks[gecerliSatir][gecerliSutun].isQuestionMarked())
-								{
-									blocks[gecerliSatir][gecerliSutun].setBlockAsDisabled(false);
-									blocks[gecerliSatir][gecerliSutun].setFlagIcon(true);
-									blocks[gecerliSatir][gecerliSutun].setFlagged(true);
-									minesToFind--;
-									mayinSayisiGostergesiniGuncelle();
-								}
-
-								else if (!blocks[gecerliSatir][gecerliSutun].isQuestionMarked())
-								{
-									blocks[gecerliSatir][gecerliSutun].setBlockAsDisabled(true);
-									blocks[gecerliSatir][gecerliSutun].setQuestionMarkIcon(true);
-									blocks[gecerliSatir][gecerliSutun].setFlagged(false);
-									blocks[gecerliSatir][gecerliSutun].setQuestionMarked(true);
-									minesToFind++;
-									mayinSayisiGostergesiniGuncelle();
-								}
-
-								else
-								{
-									blocks[gecerliSatir][gecerliSutun].setBlockAsDisabled(true);
-									blocks[gecerliSatir][gecerliSutun].clearAllIcons();
-									blocks[gecerliSatir][gecerliSutun].setQuestionMarked(false);
-
-									if (blocks[gecerliSatir][gecerliSutun].isFlagged())
-									{
-										minesToFind++;
-										mayinSayisiGostergesiniGuncelle();
-									}
-
-									blocks[gecerliSatir][gecerliSutun].setFlagged(false);
-								}
-
-								mayinSayisiGostergesiniGuncelle();
-							}
-						}
 						return true;
+
 					}
 				});
 			}

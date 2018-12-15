@@ -10,28 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AnaMenu" >
 
-    <Button
-        android:id="@+id/yardimb"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cikisb"
-        android:layout_alignParentRight="true"
-        android:text="Yardım" />
-
-    <Button
-        android:id="@+id/oyunb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/yardimb"
-        android:layout_alignLeft="@+id/yardimb"
-        android:text="Oyun" />
-
-    <Button
-        android:id="@+id/cikisb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/yardimb"
         android:layout_alignParentBottom="true"
-        android:text="Çıkış" />
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="70dp"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/oyunb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Oyun" />
+
+        <Button
+            android:id="@+id/yardimb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Yardım" />
+
+        <Button
+            android:id="@+id/cikisb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Çıkış" />
+
+    </LinearLayout>
 
 </RelativeLayout>

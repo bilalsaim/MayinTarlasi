@@ -4,15 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         <activity
             android:name="com.example.mayintarlasi.AnaMenu"
             android:label="@string/app_name" >
@@ -43,6 +39,11 @@
         <activity
             android:name="com.example.mayintarlasi.Gorunum"
             android:label="@string/title_activity_gorunum" >
+            <intent-filter>
+                <action android:name="com.example.mayintarlasi.Gorunum" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.mayintarlasi.YeniOyun"
@@ -54,12 +55,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.DevamKaydet"
-            android:label="@string/title_activity_devamkaydet">
+            android:name="com.example.mayintarlasi.Devamkaydet"
+            android:label="@string/title_activity_devamkaydet" >
             <intent-filter>
                 <action android:name="com.example.mayintarlasi.Devamkaydet" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.Yardim"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_yardim" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.Istatistikler"
+            android:label="@string/title_activity_istatistikler" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.OyunOlustur"
+            android:label="@string/title_activity_oyun_olustur" >
+            <intent-filter>
+                <action android:name="android.intent.action.OyunOlustur" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.KayitListele"
+            android:label="@string/title_activity_kayit_listele" >
+            <intent-filter>
+                <action android:name="android.intent.action.KayitListele" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.KayitliOyna"
+            android:label="@string/title_activity_kayitli_oyna" >
+            <intent-filter>
+                <action android:name="android.intent.action.KayitliOyna" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

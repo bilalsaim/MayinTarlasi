@@ -10,166 +10,145 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:textAlignment="gravity"
     tools:context=".Gorunum" >
-    
-<RadioGroup
-    android:id="@+id/radioGroup2"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="15dp"
-    android:orientation="vertical" >
-        
-    <RadioButton
-        android:id="@+id/rKare1"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rMayin1"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="14dp"
-        android:checked="true"
-        android:drawableRight="@drawable/kare3"
-        android:text="Mor"
-        android:textSize="18dp" />
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
 
-    <RadioButton
-        android:id="@+id/rKare2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rKare1"
-        android:layout_below="@+id/rKare1"
-        android:drawableRight="@drawable/kare2"
-        android:gravity="left|center_vertical|start"
-        android:text="Kırmızı"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="Kare Rengi"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
-    <RadioButton
-        android:id="@+id/rKare3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rKare2"
-        android:layout_below="@+id/rKare2"
-        android:drawablePadding="7dp"
-        android:drawableRight="@drawable/kare1"
-        android:gravity="center_vertical|start|clip_vertical"
-        android:text="Yeşil"
-        android:textSize="18sp" />
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
 
-    <RadioButton
-        android:id="@+id/rKare4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rKare3"
-        android:layout_below="@+id/rKare3"
-        android:drawableRight="@drawable/kare4"
-        android:gravity="right|center_vertical|start"
-        android:text="Turuncu"
-        android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/rKare1"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:checked="true"
+                android:drawableRight="@drawable/kare3"
+                android:text="Mor"
+                android:textSize="18dp" />
 
-    <RadioButton
-        android:id="@+id/rKare5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rKare4"
-        android:layout_below="@+id/rKare4"
-        android:drawableRight="@drawable/kare5"
-        android:text="Lacivert"
-        android:textSize="18sp" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rKare2"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:drawableRight="@drawable/kare2"
+                android:gravity="left|center_vertical|start"
+                android:text="Kırmızı"
+                android:textSize="18sp" />
 
-<RadioGroup
-    android:id="@+id/radioGroup3"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignLeft="@+id/radioGroup2"
-    android:layout_alignParentBottom="true"
-    android:layout_marginBottom="60dp"
-    android:orientation="vertical" >
+            <RadioButton
+                android:id="@+id/rKare3"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:drawablePadding="7dp"
+                android:drawableRight="@drawable/kare1"
+                android:gravity="center_vertical|start|clip_vertical"
+                android:text="Yeşil"
+                android:textSize="18sp" />
 
-    <RadioButton
-        android:id="@+id/rMayin1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:checked="true"
-        android:drawableRight="@drawable/mayinsekli1"
-        android:paddingTop="5dp"
-        android:text="Mayın 1"
-        android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/rKare4"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:drawableRight="@drawable/kare4"
+                android:gravity="right|center_vertical|start"
+                android:text="Turuncu"
+                android:textSize="18sp" />
+        </RadioGroup>
 
-    <RadioButton
-        android:id="@+id/rMayin2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rMayin1"
-        android:layout_below="@+id/rMayin1"
-        android:layout_marginLeft="15dp"
-        android:drawableRight="@drawable/mayinsekli2"
-        android:text="Mayın2"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="5dp"
+            android:text="Mayın Şekli"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
-    <RadioButton
-        android:id="@+id/rMayin3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rMayin2"
-        android:layout_below="@+id/rMayin2"
-        android:layout_marginLeft="15dp"
-        android:drawableRight="@drawable/mayinsekli3"
-        android:text="Mayın 3"
-        android:textSize="18sp" />
+        <RadioGroup
+            android:id="@+id/radioGroup3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-</RadioGroup>
+            <RadioButton
+                android:id="@+id/rMayin1"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="15dp"
+                android:checked="true"
+                android:drawableRight="@drawable/mayinsekli1"
+                android:paddingTop="5dp"
+                android:text="Mayın 1"
+                android:textSize="18sp" />
 
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_alignRight="@+id/ggeriBtn"
-    android:layout_marginRight="56dp"
-    android:layout_marginTop="0dp"
-    android:text="Kare Rengi"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="#FFFFFF"
-    android:textStyle="bold" />
+            <RadioButton
+                android:id="@+id/rMayin2"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="15dp"
+                android:drawableRight="@drawable/mayinsekli2"
+                android:text="Mayın2"
+                android:textSize="18sp" />
 
-<Button
-    android:id="@+id/gkaydetBtn"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_alignLeft="@+id/radioGroup3"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentLeft="true"
-    android:layout_marginBottom="15dp"
-    android:layout_marginLeft="35dp"
-    android:gravity="center"
-    android:text="Kaydet"
-    android:textColor="#FFFFFF"
-    android:textSize="18dp"
-    android:typeface="normal" />
+            <RadioButton
+                android:id="@+id/rMayin3"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="15dp"
+                android:drawableRight="@drawable/mayinsekli3"
+                android:text="Mayın 3"
+                android:textSize="18sp" />
+        </RadioGroup>
 
-<TextView
-    android:id="@+id/textView2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_above="@+id/radioGroup3"
-    android:layout_alignRight="@+id/textView"
-    android:text="Mayın Şekli"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="#FFFFFF"
-    android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.84" >
 
-<Button
-    android:id="@+id/ggeriBtn"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_alignRight="@+id/radioGroup3"
-    android:layout_alignTop="@+id/gkaydetBtn"
-    android:layout_marginRight="19dp"
-    android:gravity="center"
-    android:text="Geri"
-    android:textColor="#FFFFFF"
-    android:textSize="20sp"
-    android:typeface="normal" />
+            <Button
+                android:id="@+id/gkaydetBtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="Kaydet"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/ggeriBtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="19dp"
+                android:gravity="center"
+                android:text="Geri"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:typeface="normal" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

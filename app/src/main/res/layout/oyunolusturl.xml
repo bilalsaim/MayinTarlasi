@@ -67,20 +67,27 @@
 		    android:stretchColumns="*" >
 
 		</TableLayout>
+
     </TableRow>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oyunun adını giriniz!"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/isimText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
 
     <Button
         android:id="@+id/yCikisBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Çıkış" />
-
-    <TextView
-        android:id="@+id/textV8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Kaydet" />
 
 </TableLayout>
 </ScrollView>

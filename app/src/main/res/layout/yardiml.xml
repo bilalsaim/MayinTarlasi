@@ -1,0 +1,118 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arkaplan"
+    tools:context=".Yardim" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+    -->
+
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+
+<ScrollView
+        android:id="@+id/yardimOForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textV8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Kurallar ve Temel Bilgiler"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Amaç"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mayınlardan kaçınarak boş kareleri bulmak. Tahtayı ne kadar hızlı temizlerseniz, skorunuz o kadar yüksek olur."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Oyun tahtası"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mayın tarlasının farklı zorluk düzeylerinde seçebileceğiniz üç standart tahtası vardır.\n    -Acemi: 81 kare, 10 mayın\n    -Deneyimli: 256 kare, 40 mayın\n    -Uzman: 480 kare, 99 mayın"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Nasıl oynanır"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mayın Tarlası&apos;nın kuralları basittir:\n  -Bir mayını açarsanız, oyun sona erer.\n  -Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir.\n  -Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="İpuçları ve öneriler"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mayınları işaretleyin. Bir karede mayın gizlendiğinden şüpheleniyorsanız, kareye basılı tutun. Kareye bir bayrak eklenir. (Emin değilseniz, soru işareti eklemek için tekrar basılı tutun.)"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/yGeriBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geri" />
+
+    </LinearLayout>
+</ScrollView>
+</FrameLayout>
