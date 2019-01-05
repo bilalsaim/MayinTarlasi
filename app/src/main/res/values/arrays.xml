@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="kareKapali">
+        <item>@drawable/kare1</item>
+        <item>@drawable/kare2</item>
+        <item>@drawable/kare3</item>
+        <item>@drawable/kare4</item>
+        <item>@drawable/kare5</item>
+    </integer-array>
+    <integer-array name="kareAcik">
+        <item>@drawable/kares</item>
+    </integer-array>
+    <integer-array name="mayin">
+        <item>@drawable/mayinsekli1</item>
+        <item>@drawable/mayinsekli2</item>
+        <item>@drawable/mayinsekli3</item>
+    </integer-array>
+    <integer-array name="soruIsareti">
+        <item>@drawable/soruisareti</item>
+    </integer-array>
+    <integer-array name="bayrak">
+        <item>@drawable/bayrak</item>
+    </integer-array>
+</resources>

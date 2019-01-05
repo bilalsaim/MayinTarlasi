@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/arkaplan"
-    tools:context=".Yardim" >
+    tools:context=".control.Yardim" >
 
     <!--
          The primary full-screen view. This can be replaced with whatever view
@@ -108,7 +108,7 @@
             android:textColor="#000000" />
 
         <Button
-            android:id="@+id/yGeriBtn"
+            android:id="@+id/yBtnGeri"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Geri" />

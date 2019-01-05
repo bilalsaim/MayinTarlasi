@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".OyunMenu" >
+    tools:context=".control.OyunMenu" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,55 +20,34 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/mYeniBtn"
+            android:id="@+id/mBtnYeni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Yeni Oyun" />
 
         <Button
-            android:id="@+id/mKayitliBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Kayıtlı Oyun" />
-
-        <Button
-            android:id="@+id/mOlusturBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Oyun Oluştur" />
-
-        <Button
-            android:id="@+id/mDevamBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Devam Et" />
-
-        <Button
-            android:id="@+id/mIstatistikBtn"
+            android:id="@+id/mBtnIstatistik"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="İstatistikler" />
 
         <Button
-            android:id="@+id/mSecenekBtn"
+            android:id="@+id/mBtnSecenek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Seçenekler" />
 
         <Button
-            android:id="@+id/mGorunum"
+            android:id="@+id/mBtnGorunum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Görünüm" />
 
         <Button
-            android:id="@+id/gerib"
+            android:id="@+id/mBtnGeri"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

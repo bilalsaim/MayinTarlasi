@@ -25,7 +25,8 @@ android {
 dependencies {
     // Dependency on local binaries
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:support-v4:18.0.0'
+    implementation 'org.apache.commons:commons-lang3:3.0'
+    implementation 'com.android.support:support-v4:27.1.1'
 }
 
 configurations.all {

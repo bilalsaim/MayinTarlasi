@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Istatistikler" >
+    tools:context=".control.Istatistikler" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -17,80 +17,37 @@
         android:layout_marginTop="52dp"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textV1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/iTextMulti"
+            android:layout_width="match_parent"
+            android:layout_height="212dp"
             android:layout_marginTop="8dp"
-            android:text="Oynanan oyun= "
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textV2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Kazanılan oyun= "
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textV3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Kazanma yüzdesi= "
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textV4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="En uzun üst üste kazanma sayısı="
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textV5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="En uzun üst üste kaybetme sayısı="
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textV10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Geçerli seri="
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:foreground="@android:color/transparent"
+            android:inputType="textMultiLine"
+            android:text="" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/acemiBtn"
+                android:id="@+id/iBtnAcemi"
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Acemi" />
 
             <Button
-                android:id="@+id/denBtn"
+                android:id="@+id/iBtnDeneyimli"
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Deneyimli" />
 
             <Button
-                android:id="@+id/uzmanBtn"
+                android:id="@+id/iBtnUzman"
                 android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -98,14 +55,14 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/iGeriBtn"
+            android:id="@+id/iBtnGeri"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Geri" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textV7"
+        android:id="@+id/iTextBaslik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

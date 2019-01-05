@@ -7,29 +7,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Secenekler" >
+    tools:context=".control.Secenekler" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/sLinear1"
+        android:weightSum="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" >
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="left"
-            android:measureWithLargestChild="false"
-            android:orientation="vertical"
-            android:paddingBottom="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:paddingTop="0dp" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/sTextDuzey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -41,53 +36,68 @@
                 android:textStyle="bold"
                 android:typeface="normal" />
 
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:checked="true"
-                android:gravity="center_vertical"
-                android:onClick="onRadioButtonClicked"
-                android:paddingBottom="0dp"
-                android:text="Acemi\n10 Mayın\n9 x 9 Döşeme"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/radioButton2"
+            <RadioGroup
+                android:id="@+id/sRadioGroupZorluk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:gravity="center_vertical"
-                android:onClick="onRadioButtonClicked"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:measureWithLargestChild="false"
+                android:orientation="vertical"
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
-                android:paddingTop="0dp"
-                android:text="Deneyimli\n40 Mayın\n16 x 16 Döşeme"
-                android:textSize="14sp" />
+                android:paddingTop="0dp">
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="3dp"
-                android:gravity="center_vertical"
-                android:onClick="onRadioButtonClicked"
-                android:text="Uzman\n99 Mayın\n16 x 30 Döşeme"
-                android:textSize="14sp" />
+                <RadioButton
+                    android:id="@+id/sRadioZorluk1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:checked="true"
+                    android:gravity="center_vertical"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingBottom="0dp"
+                    android:text="Acemi\n10 Mayın\n9 x 9 Döşeme"
+                    android:textSize="14sp" />
 
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:onClick="onRadioButtonClicked"
-                android:text="Özel"
-                android:textSize="14sp" />
+                <RadioButton
+                    android:id="@+id/sRadioZorluk2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical"
+                    android:onClick="onRadioButtonClicked"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="0dp"
+                    android:text="Deneyimli\n40 Mayın\n16 x 16 Döşeme"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/sRadioZorluk3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Uzman\n99 Mayın\n16 x 30 Döşeme"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/sRadioZorluk4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Özel"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/sTextMayin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
@@ -96,7 +106,7 @@
                 android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/mayinTBox"
+                android:id="@+id/sBoxMayin"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
@@ -104,14 +114,15 @@
                 android:layout_marginTop="0dp"
                 android:editable="true"
                 android:ems="10"
+                android:enabled="false"
                 android:text="10"
-                android:textSize="13sp" >
+                android:textSize="13sp">
 
                 <requestFocus />
             </EditText>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/sTextGenislik"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
@@ -120,45 +131,47 @@
                 android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/genislikTextBox"
+                android:id="@+id/sBoxGenislik"
                 android:layout_width="98dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
                 android:layout_marginTop="0dp"
                 android:editable="true"
                 android:ems="10"
+                android:enabled="false"
                 android:text="9"
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/sTextYukseklik"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
                 android:layout_marginTop="0dp"
-                android:text="Genişlil (9-16)"
+                android:text="Genişlik (9-16)"
                 android:textSize="13sp" />
 
             <EditText
-                android:id="@+id/yukseklikTextBox"
+                android:id="@+id/sBoxYukseklik"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="33dp"
                 android:editable="true"
                 android:ems="10"
+                android:enabled="false"
                 android:text="9"
                 android:textSize="13sp" />
-        </RadioGroup>
+
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="130dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="28dp"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/sTextOzellikler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -169,26 +182,26 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/soruIsaretiBox"
+                android:id="@+id/sCheckSoruIsareti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Soru işareti" />
 
             <CheckBox
-                android:id="@+id/sesCalBox"
+                android:id="@+id/sCheckSes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sesleri Çal" />
 
             <Button
-                android:id="@+id/skaydetBtn"
+                android:id="@+id/sBtnKaydet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="175dp"
                 android:text="Kaydet" />
 
             <Button
-                android:id="@+id/sgeriBtn"
+                android:id="@+id/sBtnGeri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Geri" />

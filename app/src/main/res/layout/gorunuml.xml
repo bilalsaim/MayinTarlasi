@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:textAlignment="gravity"
-    tools:context=".Gorunum" >
+    tools:context=".control.Gorunumler" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/radioGroup2"
+            android:id="@+id/gRadioGroupKare"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -36,7 +36,7 @@
             android:orientation="vertical" >
 
             <RadioButton
-                android:id="@+id/rKare1"
+                android:id="@+id/gRadioKare1"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:checked="true"
@@ -45,7 +45,7 @@
                 android:textSize="18dp" />
 
             <RadioButton
-                android:id="@+id/rKare2"
+                android:id="@+id/gRadioKare2"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/kare2"
@@ -54,7 +54,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/rKare3"
+                android:id="@+id/gRadioKare3"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:drawablePadding="7dp"
@@ -64,7 +64,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/rKare4"
+                android:id="@+id/gRadioKare4"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/kare4"
@@ -86,13 +86,13 @@
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/radioGroup3"
+            android:id="@+id/gRadioGroupMayin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <RadioButton
-                android:id="@+id/rMayin1"
+                android:id="@+id/gRadioMayin1"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginLeft="15dp"
@@ -103,7 +103,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/rMayin2"
+                android:id="@+id/gRadioMayin2"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginLeft="15dp"
@@ -112,7 +112,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/rMayin3"
+                android:id="@+id/gRadioMayin3"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginLeft="15dp"
@@ -127,7 +127,7 @@
             android:layout_weight="0.84" >
 
             <Button
-                android:id="@+id/gkaydetBtn"
+                android:id="@+id/gBtnKaydet"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -138,7 +138,7 @@
                 android:typeface="normal" />
 
             <Button
-                android:id="@+id/ggeriBtn"
+                android:id="@+id/gBtnGeri"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"

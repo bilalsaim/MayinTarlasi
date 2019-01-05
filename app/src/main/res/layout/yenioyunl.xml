@@ -1,8 +1,8 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Yenioyun" >
+    tools:context=".control.YeniOyun" >
 <ScrollView
-        android:id="@+id/yeniOForm"
+        android:id="@+id/yoScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          >
@@ -15,7 +15,7 @@
     <TableRow>
 
 		<TextView
-		    android:id="@+id/Timer"
+		    android:id="@+id/yoTextSure"
 		    android:layout_width="fill_parent"
 		    android:layout_height="30dp"
 		    android:layout_column="0"
@@ -26,7 +26,7 @@
 		    android:textSize="25sp" />
 			
 		<ImageButton
-		    android:id="@+id/Smiley"
+		    android:id="@+id/yoBtnBaslat"
 		    android:layout_width="30dp"
 		    android:layout_height="30dp"
 		    android:layout_column="1"
@@ -35,7 +35,7 @@
 		    android:scaleType="center" />
 		
 		<TextView
-		    android:id="@+id/MineCount"
+		    android:id="@+id/yoTextMayinSayisi"
 		    android:layout_width="fill_parent"
 		    android:layout_height="30dp"
 		    android:layout_column="2"
@@ -57,7 +57,7 @@
         android:gravity="top" >
 
 		<TableLayout
-		    android:id="@+id/MineField"
+		    android:id="@+id/MayinAlani"
 		    android:layout_width="fill_parent"
 		    android:layout_height="fill_parent"
 		    android:layout_gravity="start"
@@ -70,17 +70,10 @@
     </TableRow>
 
     <Button
-        android:id="@+id/yCikisBtn"
+        android:id="@+id/yoBtnCikis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Çıkış" />
-
-    <TextView
-        android:id="@+id/textV8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </TableLayout>
 </ScrollView>
