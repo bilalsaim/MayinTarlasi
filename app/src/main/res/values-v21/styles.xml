@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MayinTarlasiTheme" parent="AppBaseTheme">
+        <item name="android:colorPrimary">@color/holo_light_primary</item>
+        <item name="android:colorPrimaryDark">@color/holo_light_primary_dark</item>
+        <item name="android:colorBackground">@color/background_holo_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_holo_light</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/dosismedium</item>
+    </style>
+</resources>

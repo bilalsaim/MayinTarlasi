@@ -1,9 +1,9 @@
 package com.example.mayintarlasi.control;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.View;

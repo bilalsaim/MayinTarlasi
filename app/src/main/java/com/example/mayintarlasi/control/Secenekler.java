@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class Secenekler extends Activity {
 	private CheckBox sCheckSes;
 	private static final int ALERT_DIALOG1 = 1;
 	private static final int ALERT_DIALOG2 = 2;
+	private NestedScrollView nestedScrollView;
+	private boolean zorlukOzel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +60,7 @@ public class Secenekler extends Activity {
 		sRadioGroupZorluk = (RadioGroup)findViewById(R.id.sRadioGroupZorluk);
 		((RadioButton)sRadioGroupZorluk.getChildAt(secenek.getZorluk().getI())).setChecked(true);
 
-		boolean zorlukOzel = secenek.getZorluk().equals(Zorluk.OZEL);
+		zorlukOzel = secenek.getZorluk().equals(Zorluk.OZEL);
 		//Zorluk özel ise özel bölümünü aktif et değilse kapa
 		sBoxMayin.setEnabled(zorlukOzel);
 		sBoxGenislik.setEnabled(zorlukOzel);
@@ -69,8 +72,17 @@ public class Secenekler extends Activity {
 			sBoxYukseklik.setText(Integer.toString(secenek.getZorluk().getY()));
 		}
 
-		sBtnGeri = (Button) findViewById(R.id.sBtnGeri);
+        nestedScrollView = (NestedScrollView) findViewById(R.id.sNestedScrollView);
+        nestedScrollView.postDelayed(new Runnable() {
+            public void run() {
+                if(!zorlukOzel){
+                    nestedScrollView.fullScroll(View.FOCUS_UP);
+                    nestedScrollView.scrollTo(0,0);
+                }
+            }
+        }, 500);
 
+		sBtnGeri = (Button) findViewById(R.id.sBtnGeri);
 		sBtnGeri.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				startActivity(new Intent("android.intent.action.OyunMenu"));
@@ -174,6 +186,10 @@ public class Secenekler extends Activity {
 
 	public void onRadioButtonClicked(View view) {
 		boolean zorlukOzel = (getRadioSelectedIndex((RadioGroup)findViewById(R.id.sRadioGroupZorluk)) == 3);
+		if(zorlukOzel)
+        {
+            nestedScrollView.fullScroll(View.FOCUS_DOWN);
+        }
 		findViewById(R.id.sBoxMayin).setEnabled(zorlukOzel);
 		findViewById(R.id.sBoxGenislik).setEnabled(zorlukOzel);
 		findViewById(R.id.sBoxYukseklik).setEnabled(zorlukOzel);

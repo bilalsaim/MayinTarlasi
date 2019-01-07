@@ -58,13 +58,13 @@ public class Kare extends Button
 
 	public void komsuMayinSayisiniAyarla(int number)
 	{
-		this.setBackgroundResource(gorunum.getKareKapali().getSecilen());
+		this.setBackgroundResource(gorunum.getKareAcik().getSecilen());
 		numaraGuncelle(number);
 	}
 
 	public void setMineIcon(boolean enabled)
 	{
-		this.setBackgroundResource(gorunum.getKareAcik().getSecilen());
+		this.setBackgroundResource(gorunum.getMayin().getSecilen());
 
 		if (!enabled)
 		{

@@ -32,12 +32,12 @@ public class OyunMenu extends Activity {
 			}
 		});
 
-		Button mBtnIstatistik = (Button) findViewById(R.id.mBtnIstatistik);
-		mBtnIstatistik.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				startActivity(new Intent("android.intent.action.Istatistikler"));
-			}
-		});
+//		Button mBtnIstatistik = (Button) findViewById(R.id.mBtnIstatistik);
+//		mBtnIstatistik.setOnClickListener(new OnClickListener() {
+//			public void onClick(View view) {
+//				startActivity(new Intent("android.intent.action.Istatistikler"));
+//			}
+//		});
 
 		Button mBtnYeni = (Button) findViewById(R.id.mBtnYeni);
 		mBtnYeni.setOnClickListener(new OnClickListener() {

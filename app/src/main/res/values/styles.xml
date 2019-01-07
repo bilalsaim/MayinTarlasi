@@ -26,4 +26,10 @@
         <item name="android:padding">16dp</item>
     </style>
 
+    <style name="MayinTarlasiTheme" parent="AppBaseTheme" >
+        <item name="android:colorBackground">@color/background_holo_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_holo_light</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>

@@ -34,7 +34,6 @@ import java.util.Random;
 public class YeniOyun extends Activity {
 
     private ImageButton btnBaslat;
-    private Button btnCikis;
     private TextView textMayinSayisi;
     private TextView textZaman;
     private MediaPlayer sesKaybetme;
@@ -47,8 +46,9 @@ public class YeniOyun extends Activity {
     private boolean isOyunBitti;
     private int kalanMayin; //Bulunmamış mayın sayısı
     private Secenek secenek;
+
     //TODO: Değeri salladım düzelt
-    private int kareBoyutu = 16; // Blok yükseklikleri
+    private int kareBoyutu = 128; // Blok yükseklikleri
     private int kareBoslugu = 2; // Kareler arası boşluklar
     private TableLayout mayinAlani;
 
@@ -71,21 +71,15 @@ public class YeniOyun extends Activity {
 
         btnBaslat = (ImageButton) findViewById(R.id.yoBtnBaslat);
         btnBaslat.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View view)
-			{
-				oyunuBaslat();
-			}
-		});
+        {
+            @Override
+            public void onClick(View view)
+            {
+                oyunuBaslat();
+            }
+        });
 
-        btnCikis = (Button) findViewById(R.id.yoBtnCikis);
-        btnCikis.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), AnaMenu.class);
-                startActivity(intent);
-			}
-		});
+        oyunuBaslat();
 	}
 
     private void oyunuSifirla()
@@ -146,6 +140,8 @@ public class YeniOyun extends Activity {
                     @Override
                     public void onClick(View view)
                     {
+                        if(isOyunBitti) return;
+
                         if (!isZamanBasladi)
                         {
                             zamanaiBaslat();
@@ -161,7 +157,8 @@ public class YeniOyun extends Activity {
                         if (!kareler[gecerliSatir][gecerliSutun].isBayrak())
                         {
                             kareAc(gecerliSatir, gecerliSutun);
-                            
+
+                            //Mayına basılıysa oyunu kaybet
                             if (kareler[gecerliSatir][gecerliSutun].isMayin())
                             {
                                 oyunKaybedildi(gecerliSatir,gecerliSutun);
@@ -176,45 +173,10 @@ public class YeniOyun extends Activity {
                 {
                     public boolean onLongClick(View view)
                     {
+                        if(isOyunBitti || !kareler[gecerliSatir][gecerliSutun].isKapali()) return true;
+
                         if(secenek.isSoruIsareti())
                         {
-                            if (!kareler[gecerliSatir][gecerliSutun].isKapali() && (kareler[gecerliSatir][gecerliSutun].getKomsuMayinSayisi() > 0) && !isOyunBitti)
-                            {
-                                int komsuBayrakSayisi = 0;
-                                for (int ilerikiSatir = -1; ilerikiSatir < 2; ilerikiSatir++)
-                                {
-                                    for (int ilerikiSutun = -1; ilerikiSutun < 2; ilerikiSutun++)
-                                    {
-                                        if (kareler[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].isBayrak())
-                                        {
-                                            komsuBayrakSayisi++;
-                                        }
-                                    }
-                                }
-
-                                if (komsuBayrakSayisi == kareler[gecerliSatir][gecerliSutun].getKomsuMayinSayisi())
-                                {
-                                    for (int ilerikiSatir = -1; ilerikiSatir < 2; ilerikiSatir++)
-                                    {
-                                        for (int ilerikiSutun = -1; ilerikiSutun < 2; ilerikiSutun++)
-                                        {
-                                            if (!kareler[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].isBayrak())
-                                            {
-                                                kareAc(gecerliSatir + ilerikiSatir, gecerliSutun + ilerikiSutun);
-                                                if (kareler[gecerliSatir + ilerikiSatir][gecerliSutun + ilerikiSutun].isMayin())
-                                                {
-                                                    oyunKaybedildi(gecerliSatir + ilerikiSatir, gecerliSutun + ilerikiSutun);
-                                                }
-
-                                                if (kazanmaKontrol()) oyunKazanildi();
-                                            }
-                                        }
-                                    }
-                                }
-
-                                return true;
-                            }
-
                             if (kareler[gecerliSatir][gecerliSutun].isClickable() &&
                                     (kareler[gecerliSatir][gecerliSutun].isEnabled() || kareler[gecerliSatir][gecerliSutun].isBayrak()))
                             {
@@ -308,7 +270,6 @@ public class YeniOyun extends Activity {
             }
         }
     }
-
 
     private void mayinAlaniniGoster()
 	{
@@ -418,7 +379,7 @@ public class YeniOyun extends Activity {
 		{
 			for (int sutun = 0; sutun < 3; sutun++)
 			{
-				if (kareler[tiklananSatir + satir - 1][tiklananSutun + sutun - 1].isBayrak()
+				if (kareler[tiklananSatir + satir - 1][tiklananSutun + sutun - 1].isKapali()
 						&& (tiklananSatir + satir - 1 > 0) && (tiklananSutun + sutun - 1 > 0)
 						&& (tiklananSatir + satir - 1 < secenek.getX() + 1) && (tiklananSutun + sutun - 1 < secenek.getY() + 1))
 				{
@@ -426,6 +387,7 @@ public class YeniOyun extends Activity {
 				}
 			}
 		}
+		return;
 	}
 
 	private Runnable updateTimeElasped = new Runnable()
