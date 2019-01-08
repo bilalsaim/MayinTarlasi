@@ -66,7 +66,7 @@
                         android:gravity="center_vertical"
                         android:onClick="onRadioButtonClicked"
                         android:paddingBottom="0dp"
-                        android:text="Acemi\n10 Mayın\n9 x 9 Döşeme"
+                        android:text="Acemi\n9 x 9 - 10 Mayın"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -80,17 +80,17 @@
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
                         android:paddingTop="0dp"
-                        android:text="Deneyimli\n40 Mayın\n16 x 16 Döşeme"
+                        android:text="Deneyimli\n16 x 16 - 40 Mayın"
                         android:textSize="14sp" />
 
                     <RadioButton
                         android:id="@+id/sRadioZorluk3"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:gravity="center_vertical"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Uzman\n99 Mayın\n16 x 30 Döşeme"
+                        android:text="Uzman\n16x30 - 99 Mayın"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -105,40 +105,31 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/sTextYukseklik"
+                    android:id="@+id/sTextGenislik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Genişlik (9-16)"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/sBoxYukseklik"
+                <SeekBar
+                    android:id="@+id/sSeekGenislik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="true"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:text="9"
-                    android:textSize="13sp" />
+                    android:max="7" />
 
                 <TextView
-                    android:id="@+id/sTextGenislik"
+                    android:id="@+id/sTextYukseklik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:text="Yükseklik (9-30)"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/sBoxGenislik"
+                <SeekBar
+                    android:id="@+id/sSeekYukseklik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:editable="true"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:text="9"
-                    android:textSize="13sp" />
+                    android:max="21" />
 
                 <TextView
                     android:id="@+id/sTextMayin"
@@ -148,18 +139,11 @@
                     android:text="Mayın (10-400)"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/sBoxMayin"
+                <SeekBar
+                    android:id="@+id/sSeekMayin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="true"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:text="10"
-                    android:textSize="13sp">
-
-                    <requestFocus />
-                </EditText>
+                    android:max="390" />
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

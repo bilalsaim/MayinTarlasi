@@ -2,6 +2,7 @@ package com.example.mayintarlasi.control;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -31,10 +32,17 @@ public class Gorunumler extends Activity {
 		gorunum = Gorunum.getSingleton();
 
 		gRadioGroupKare = (RadioGroup) findViewById(R.id.gRadioGroupKare);
-		((RadioButton)gRadioGroupKare.getChildAt(gorunum.getKareKapali().getIndeks())).setChecked(true);
-
 		gRadioGroupMayin = (RadioGroup) findViewById(R.id.gRadioGroupMayin);
-		((RadioButton)gRadioGroupMayin.getChildAt(gorunum.getMayin().getIndeks())).setChecked(true);
+
+		int indeksKare = gorunum.getKareKapali().getIndeks();
+		int indeksMayin = gorunum.getMayin().getIndeks();
+		if (savedInstanceState != null) {
+			indeksKare = savedInstanceState.getInt("radioGroupKare", 0);
+			indeksMayin = savedInstanceState.getInt("radioGroupMayin", 0);
+		}
+
+		((RadioButton)gRadioGroupKare.getChildAt(indeksKare)).setChecked(true);
+		((RadioButton)gRadioGroupMayin.getChildAt(indeksMayin)).setChecked(true);
 
 		Button gBtnKaydet = (Button) findViewById(R.id.gBtnKaydet);
 		gBtnKaydet.setOnClickListener(new View.OnClickListener() {
@@ -42,14 +50,16 @@ public class Gorunumler extends Activity {
 				gorunum.getKareKapali().setIndeks(getRadioSelectedIndex(gRadioGroupKare));
 				gorunum.getMayin().setIndeks(getRadioSelectedIndex(gRadioGroupMayin));
 
-				startActivity(new Intent("android.intent.action.OyunMenu"));
+				Intent intent = new Intent(Gorunumler.this, AnaMenu.class);
+				startActivity(intent);
 			}
 		});
 
 		Button gBtnGeri = (Button) findViewById(R.id.gBtnGeri);
 		gBtnGeri.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				startActivity(new Intent("android.intent.action.OyunMenu"));
+				Intent intent = new Intent(Gorunumler.this, AnaMenu.class);
+				startActivity(intent);
 			}
 		});
 	}
@@ -63,5 +73,14 @@ public class Gorunumler extends Activity {
 
 	public int getRadioSelectedIndex(RadioGroup radioGroup){
 		return radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		// Ekran çevrilince hafızada tutmak istediklerini ekle
+		// Bundle.putStringArray() da kullanılabilir
+		outState.putInt("radioGroupKare", getRadioSelectedIndex(gRadioGroupKare));
+		outState.putInt("radioGroupMayin", getRadioSelectedIndex(gRadioGroupMayin));
 	}
 }

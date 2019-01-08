@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name="com.example.mayintarlasi.control.Secenekler"
-            android:label="@string/title_activity_secenekler">
+            android:label="@string/title_activity_secenekler"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.Secenekler" />
 
@@ -37,17 +38,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.OyunMenu"
-            android:label="@string/title_activity_oyun_menu">
-            <intent-filter>
-                <action android:name="android.intent.action.OyunMenu" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.example.mayintarlasi.control.YeniOyun"
-            android:label="@string/title_activity_yeni_oyun">
+            android:label="@string/title_activity_yeni_oyun"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.YeniOyun" />
 

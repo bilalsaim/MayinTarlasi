@@ -18,7 +18,7 @@
 
 			<TextView
 				android:id="@+id/yoTextSure"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="30dp"
 				android:layout_gravity="top"
 				android:layout_weight="1"
@@ -37,7 +37,7 @@
 
 			<TextView
 				android:id="@+id/yoTextMayinSayisi"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="30dp"
 				android:layout_gravity="top"
 				android:layout_weight="1"
@@ -48,27 +48,27 @@
 
 		</LinearLayout>
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+		<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 			android:id="@+id/scrollView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="top|center"
 			android:layout_weight="1"
 			android:fillViewport="true">
-            <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+			<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_gravity="top|center"
 				android:fillViewport="true">
 
-				<TableLayout
-					android:id="@+id/MayinAlani"
+				<RelativeLayout
+					android:id="@+id/mayinAlaniRelative"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="start"
-					android:layout_span="3"
-					android:gravity="top"
-					android:padding="1dp"
-					android:stretchColumns="*"></TableLayout>
-            </HorizontalScrollView>
-        </ScrollView>
+					android:layout_height="wrap_content">
+
+				</RelativeLayout>
+			</HorizontalScrollView>
+		</ScrollView>
 	</LinearLayout>
 </RelativeLayout>

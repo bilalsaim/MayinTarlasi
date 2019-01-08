@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="kareKapali">
-        <item>@drawable/kare1</item>
-        <item>@drawable/kare2</item>
-        <item>@drawable/kare3</item>
-        <item>@drawable/kare4</item>
-        <item>@drawable/kare5</item>
+        <item>@drawable/karerenk1</item>
+        <item>@drawable/karerenk2</item>
+        <item>@drawable/karerenk3</item>
+        <item>@drawable/karerenk4</item>
     </integer-array>
     <integer-array name="kareAcik">
-        <item>@drawable/kares</item>
+        <item>@drawable/karerenkacik</item>
     </integer-array>
     <integer-array name="mayin">
         <item>@drawable/mayinsekli1</item>

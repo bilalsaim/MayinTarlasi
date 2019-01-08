@@ -5,15 +5,17 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.mayintarlasi.R;
 import com.example.mayintarlasi.model.Secenek;
@@ -26,15 +28,15 @@ public class Secenekler extends Activity {
 	private RadioGroup sRadioGroupZorluk;
 	private Button sBtnKaydet;
 	private Button sBtnGeri;
-	private EditText sBoxMayin;
-	private EditText sBoxGenislik;
-	private EditText sBoxYukseklik;
 	private CheckBox sCheckSoruIsareti;
 	private CheckBox sCheckSes;
 	private static final int ALERT_DIALOG1 = 1;
 	private static final int ALERT_DIALOG2 = 2;
 	private NestedScrollView nestedScrollView;
 	private boolean zorlukOzel;
+	private SeekBar[] zorlukOzelSeek;
+	private TextView[] zorlukOzelText;
+	private String[] zorlukOzelMetin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,23 +55,33 @@ public class Secenekler extends Activity {
 			sCheckSes.setChecked(true);
 		}
 
-		sBoxMayin = (EditText)findViewById(R.id.sBoxMayin);
-		sBoxGenislik = (EditText)findViewById(R.id.sBoxGenislik);
-		sBoxYukseklik = (EditText)findViewById(R.id.sBoxYukseklik);
 
 		sRadioGroupZorluk = (RadioGroup)findViewById(R.id.sRadioGroupZorluk);
 		((RadioButton)sRadioGroupZorluk.getChildAt(secenek.getZorluk().getI())).setChecked(true);
 
+		zorlukOzelSeek = new SeekBar[]{(SeekBar)findViewById(R.id.sSeekGenislik),
+				(SeekBar)findViewById(R.id.sSeekYukseklik),
+				(SeekBar)findViewById(R.id.sSeekMayin)};
+
+		zorlukOzelText = new TextView[]{(TextView)findViewById(R.id.sTextGenislik),
+				(TextView)findViewById(R.id.sTextYukseklik),
+				(TextView)findViewById(R.id.sTextMayin)};
+
+		zorlukOzelMetin = new String[]{"Genişlik (9-16): %d", "Yükseklik (9-30): %d", "Mayın (10-400): %d"};
 		zorlukOzel = secenek.getZorluk().equals(Zorluk.OZEL);
-		//Zorluk özel ise özel bölümünü aktif et değilse kapa
-		sBoxMayin.setEnabled(zorlukOzel);
-		sBoxGenislik.setEnabled(zorlukOzel);
-		sBoxYukseklik.setEnabled(zorlukOzel);
 
 		if(zorlukOzel){
-			sBoxMayin.setText(Integer.toString(secenek.getZorluk().getMayin()));
-			sBoxGenislik.setText(Integer.toString(secenek.getZorluk().getX()));
-			sBoxYukseklik.setText(Integer.toString(secenek.getZorluk().getY()));
+			zorlukOzelSeek[0].setProgress(secenek.getZorluk().getX());
+			zorlukOzelSeek[1].setProgress(secenek.getZorluk().getY());
+            zorlukOzelSeek[2].setMax(secenek.getZorluk().getX() * secenek.getZorluk().getY() - 30);
+			zorlukOzelSeek[2].setProgress(secenek.getZorluk().getMayin());
+		}
+
+		//Zorluk özel ise özel bölümünü aktif et değilse kapa
+		for(int i=0; i < zorlukOzelSeek.length; i++){
+			zorlukOzelSeek[i].setEnabled(zorlukOzel);
+			int artis = (i == 2) ? 10 : 9;
+			zorlukOzelText[i].setText(String.format(zorlukOzelMetin[i], zorlukOzelSeek[i].getProgress() + artis));
 		}
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.sNestedScrollView);
@@ -85,9 +97,31 @@ public class Secenekler extends Activity {
 		sBtnGeri = (Button) findViewById(R.id.sBtnGeri);
 		sBtnGeri.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				startActivity(new Intent("android.intent.action.OyunMenu"));
+				Intent intent = new Intent(Secenekler.this, AnaMenu.class);
+				startActivity(intent);
 			}
 		});
+
+		for(int i=0;  i < zorlukOzelSeek.length; i++){
+			final int zorlukIndeks = i;
+			zorlukOzelSeek[i].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+				@Override
+				public void onProgressChanged(SeekBar seekBar, int barDegeri, boolean kullanicidan) {
+                    zorlukOzelSeek[2].setMax((zorlukOzelSeek[0].getProgress()+9) * (zorlukOzelSeek[1].getProgress()+9) - 30);
+					int artis = (zorlukIndeks == 2) ? 10 : 9;
+					zorlukOzelText[zorlukIndeks].setText(String.format(zorlukOzelMetin[zorlukIndeks], barDegeri + artis));
+				}
+
+				@Override
+				public void onStartTrackingTouch(SeekBar seekBar) {
+				}
+
+				@Override
+				public void onStopTrackingTouch(SeekBar seekBar) {
+				}
+			});
+		}
+
 
 		sBtnKaydet = (Button) findViewById(R.id.sBtnKaydet);
 		sBtnKaydet.setOnClickListener(new View.OnClickListener() {
@@ -97,40 +131,22 @@ public class Secenekler extends Activity {
 				//Zorluk derecesi özel ise
 				if(selectedZorluk == 3)
 				{
-					int mayinS = Integer.parseInt(sBoxMayin.getText().toString());
-					int genisS = Integer.parseInt(sBoxGenislik.getText().toString());
-					int yuksekS = Integer.parseInt(sBoxYukseklik.getText().toString());
-
-					if(mayinS<10||mayinS>400) {
-						showDialog(ALERT_DIALOG1);
-					}
-					else if(yuksekS<9||yuksekS>30) {
-						showDialog(ALERT_DIALOG1);
-					}
-					else if(genisS<9||genisS>16) {
-						showDialog(ALERT_DIALOG1);
-					}
-					else {
-						Zorluk ozelZorluk = Zorluk.OZEL;
-						ozelZorluk.setMayin(mayinS);
-						ozelZorluk.setX(genisS);
-						ozelZorluk.setY(yuksekS);
-						secenek.setZorluk(ozelZorluk);
-
-						dKaydet=true;
-					}
+					Zorluk ozelZorluk = Zorluk.OZEL;
+					ozelZorluk.setX(zorlukOzelSeek[0].getProgress()+9);
+					ozelZorluk.setY(zorlukOzelSeek[1].getProgress()+9);
+					ozelZorluk.setMayin(zorlukOzelSeek[2].getProgress()+10);
+					secenek.setZorluk(ozelZorluk);
 				}
 				else
 				{
 					secenek.setZorluk(Zorluk.bul(selectedZorluk));
-					dKaydet=true;
 				}
 
-				if(dKaydet) {
-					secenek.setSes(sCheckSes.isChecked());
-					secenek.setSoruIsareti(sCheckSoruIsareti.isChecked());
-					startActivity(new Intent("android.intent.action.OyunMenu"));
-				}
+				secenek.setSes(sCheckSes.isChecked());
+				secenek.setSoruIsareti(sCheckSoruIsareti.isChecked());
+
+				Intent intent = new Intent(Secenekler.this, AnaMenu.class);
+				startActivity(intent);
 			}
 
 		});
@@ -186,16 +202,17 @@ public class Secenekler extends Activity {
 
 	public void onRadioButtonClicked(View view) {
 		boolean zorlukOzel = (getRadioSelectedIndex((RadioGroup)findViewById(R.id.sRadioGroupZorluk)) == 3);
-		if(zorlukOzel)
-        {
-            nestedScrollView.fullScroll(View.FOCUS_DOWN);
-        }
-		findViewById(R.id.sBoxMayin).setEnabled(zorlukOzel);
-		findViewById(R.id.sBoxGenislik).setEnabled(zorlukOzel);
-		findViewById(R.id.sBoxYukseklik).setEnabled(zorlukOzel);
+		if(zorlukOzel) nestedScrollView.fullScroll(View.FOCUS_DOWN);
+
+		for(SeekBar tmpSeek : zorlukOzelSeek) tmpSeek.setEnabled(zorlukOzel);
 	}
 
 	public int getRadioSelectedIndex(RadioGroup radioGroup){
 		return radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));
 	}
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 }

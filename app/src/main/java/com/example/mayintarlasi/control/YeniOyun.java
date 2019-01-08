@@ -1,21 +1,23 @@
 package com.example.mayintarlasi.control;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
@@ -29,6 +31,8 @@ import com.example.mayintarlasi.model.Secenek;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;
+
+import pl.polidea.view.ZoomView;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class YeniOyun extends Activity {
@@ -51,6 +55,8 @@ public class YeniOyun extends Activity {
     private int kareBoyutu = 128; // Blok yükseklikleri
     private int kareBoslugu = 2; // Kareler arası boşluklar
     private TableLayout mayinAlani;
+    private ZoomView zoomView;
+    private TableLayout mayinAlaniRelative;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -60,11 +66,10 @@ public class YeniOyun extends Activity {
 
         secenek = Secenek.getInstance();
 
-        mayinAlani = (TableLayout)findViewById(R.id.MayinAlani);
 		textMayinSayisi = (TextView) findViewById(R.id.yoTextMayinSayisi);
 		textZaman = (TextView) findViewById(R.id.yoTextSure);
 
-		sesKaybetme = MediaPlayer.create(this, R.raw.bomb);
+		sesKaybetme = MediaPlayer.create(this, R.raw.oyunkaybedildi);
 		sesKazanma = MediaPlayer.create(this, R.raw.alkis);
 
 		showDialog("Oyunu başlatmak için surata tıklatınız!", 5000, true, false);
@@ -79,7 +84,18 @@ public class YeniOyun extends Activity {
             }
         });
 
-        oyunuBaslat();
+        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.mayinalanil, null, false);
+        v.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,1));
+
+        mayinAlani = (TableLayout)v.findViewById(R.id.MayinAlani);
+
+        zoomView = new ZoomView(this);
+        //zoomView.setMaxZoom(6f);
+        zoomView.addView(v);
+
+        RelativeLayout main_container = (RelativeLayout) findViewById(R.id.mayinAlaniRelative);
+        main_container.addView(zoomView);
+
 	}
 
     private void oyunuSifirla()
@@ -145,6 +161,7 @@ public class YeniOyun extends Activity {
                         if (!isZamanBasladi)
                         {
                             zamanaiBaslat();
+                            mayinSayisiGostergesiniGuncelle();
                             isZamanBasladi = true;
                         }
                         
@@ -280,7 +297,11 @@ public class YeniOyun extends Activity {
 
 			for (int sutun = 1; sutun < secenek.getY() + 1; sutun++)
 			{
-				kareler[satir][sutun].setLayoutParams(new LayoutParams(kareBoyutu + 2 * kareBoslugu, kareBoyutu + 2 * kareBoslugu));
+                LayoutParams params = new LayoutParams(kareBoyutu + 2 * kareBoslugu, kareBoyutu + 2 * kareBoslugu);
+                int kareMargin=5;
+                params.setMargins(kareMargin, kareMargin, kareMargin, kareMargin);
+
+				kareler[satir][sutun].setLayoutParams(params);
 				kareler[satir][sutun].setPadding(kareBoslugu, kareBoslugu, kareBoslugu, kareBoslugu);
 				tableRow.addView(kareler[satir][sutun]);
 			}
@@ -427,4 +448,8 @@ public class YeniOyun extends Activity {
 		return true;
 	}
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 }

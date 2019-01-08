@@ -32,6 +32,34 @@ public class AnaMenu extends Activity {
             gorunum.setBayrak(getResources().obtainTypedArray(R.array.bayrak));
         }
 
+		Button mBtnYeni = (Button) findViewById(R.id.aBtnYeni);
+		mBtnYeni.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				startActivity(new Intent("android.intent.action.YeniOyun"));
+			}
+		});
+
+		Button mBtnGorunum = (Button) findViewById(R.id.aBtnGorunum);
+		mBtnGorunum.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				startActivity(new Intent("android.intent.action.Gorunumler"));
+			}
+		});
+
+//		Button mBtnIstatistik = (Button) findViewById(R.id.aBtnIstatistik);
+//		mBtnIstatistik.setOnClickListener(new OnClickListener() {
+//			public void onClick(View view) {
+//				startActivity(new Intent("android.intent.action.Istatistikler"));
+//			}
+//		});
+
+		Button mBtnSecenek = (Button) findViewById(R.id.aBtnSecenek);
+		mBtnSecenek.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				startActivity(new Intent("android.intent.action.Secenekler"));
+			}
+		});
+
 		Button aBtnYardim = (Button) findViewById(R.id.aBtnYardim);
 		aBtnYardim.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
@@ -44,13 +72,6 @@ public class AnaMenu extends Activity {
 						startActivity(intent);
 					}
 				});
-			}
-		});
-
-		Button aBtnOyunMenu = (Button) findViewById(R.id.aBtnOyunMenu);
-		aBtnOyunMenu.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-                startActivity(new Intent("android.intent.action.OyunMenu"));
 			}
 		});
 	}

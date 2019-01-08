@@ -46,10 +46,24 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/aBtnOyunMenu"
+                android:id="@+id/aBtnYeni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Oyun" />
+                android:text="Yeni Oyun" />
+
+            <Button
+                android:id="@+id/aBtnGorunum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Görünüm" />
+
+            <Button
+                android:id="@+id/aBtnSecenek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Seçenekler" />
 
             <Button
                 android:id="@+id/aBtnYardim"
