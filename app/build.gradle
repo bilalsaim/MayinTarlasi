@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mayintarlasi"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 27
     }
 
@@ -27,6 +27,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'org.apache.commons:commons-lang3:3.0'
     implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.otaliastudios:zoomlayout:1.4.0'
 }
 
 configurations.all {

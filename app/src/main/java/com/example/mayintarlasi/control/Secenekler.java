@@ -71,10 +71,10 @@ public class Secenekler extends Activity {
 		zorlukOzel = secenek.getZorluk().equals(Zorluk.OZEL);
 
 		if(zorlukOzel){
-			zorlukOzelSeek[0].setProgress(secenek.getZorluk().getX());
-			zorlukOzelSeek[1].setProgress(secenek.getZorluk().getY());
+			zorlukOzelSeek[0].setProgress(secenek.getZorluk().getX()-9);
+			zorlukOzelSeek[1].setProgress(secenek.getZorluk().getY()-9);
             zorlukOzelSeek[2].setMax(secenek.getZorluk().getX() * secenek.getZorluk().getY() - 30);
-			zorlukOzelSeek[2].setProgress(secenek.getZorluk().getMayin());
+			zorlukOzelSeek[2].setProgress(secenek.getZorluk().getMayin()-10);
 		}
 
 		//Zorluk özel ise özel bölümünü aktif et değilse kapa

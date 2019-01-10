@@ -1,7 +1,6 @@
 package com.example.mayintarlasi.control;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,7 +15,6 @@ import android.view.View.OnLongClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
@@ -27,12 +24,11 @@ import android.widget.Toast;
 import com.example.mayintarlasi.R;
 import com.example.mayintarlasi.model.Kare;
 import com.example.mayintarlasi.model.Secenek;
+import com.otaliastudios.zoom.ZoomLayout;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;
-
-import pl.polidea.view.ZoomView;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class YeniOyun extends Activity {
@@ -51,12 +47,10 @@ public class YeniOyun extends Activity {
     private int kalanMayin; //Bulunmamış mayın sayısı
     private Secenek secenek;
 
-    //TODO: Değeri salladım düzelt
     private int kareBoyutu = 128; // Blok yükseklikleri
     private int kareBoslugu = 2; // Kareler arası boşluklar
     private TableLayout mayinAlani;
-    private ZoomView zoomView;
-    private TableLayout mayinAlaniRelative;
+    private ZoomLayout mayinYakinlastirma;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -65,6 +59,7 @@ public class YeniOyun extends Activity {
 		setContentView(R.layout.yenioyunl);
 
         secenek = Secenek.getInstance();
+        mayinYakinlastirma = (ZoomLayout) findViewById(R.id.mayinYakinlastirma);
 
 		textMayinSayisi = (TextView) findViewById(R.id.yoTextMayinSayisi);
 		textZaman = (TextView) findViewById(R.id.yoTextSure);
@@ -84,22 +79,14 @@ public class YeniOyun extends Activity {
             }
         });
 
-        View v = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.mayinalanil, null, false);
-        v.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,1));
-
-        mayinAlani = (TableLayout)v.findViewById(R.id.MayinAlani);
-
-        zoomView = new ZoomView(this);
-        //zoomView.setMaxZoom(6f);
-        zoomView.addView(v);
-
-        RelativeLayout main_container = (RelativeLayout) findViewById(R.id.mayinAlaniRelative);
-        main_container.addView(zoomView);
-
+        mayinAlani = (TableLayout)findViewById(R.id.MayinAlani);
 	}
 
     private void oyunuSifirla()
     {
+        int buyukKenar = Math.max(secenek.getX(), secenek.getY());
+        mayinYakinlastirma.setMaxZoom((float) (((buyukKenar-9.0)*0.1)+3.0), 0);
+        mayinYakinlastirma.zoomTo(1f, true);
         zamaniDurdur();
         textZaman.setText("000");
         textMayinSayisi.setText("000");
