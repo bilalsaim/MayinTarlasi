@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="kareKapali">
-        <item>@drawable/karerenk1</item>
-        <item>@drawable/karerenk2</item>
-        <item>@drawable/karerenk3</item>
-        <item>@drawable/karerenk4</item>
+        <item>@color/karerenk_yesil</item>
+        <item>@color/karerenk_kirmizi</item>
+        <item>@color/karerenk_mor</item>
+        <item>@color/karerenk_turuncu</item>
     </integer-array>
     <integer-array name="kareAcik">
         <item>@drawable/karerenkacik</item>

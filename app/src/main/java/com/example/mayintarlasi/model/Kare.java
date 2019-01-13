@@ -3,11 +3,17 @@ package com.example.mayintarlasi.model;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.Button;
+
+import com.example.mayintarlasi.R;
 
 import java.util.Arrays;
 import java.util.List;
@@ -79,19 +85,47 @@ public class Kare extends Button
 
 	public void setBayrakSimgesi(boolean enabled)
 	{
-		this.setBackgroundResource(gorunum.getBayrak().getSecilen());
-		this.setTextColor((enabled)?Color.BLACK:Color.RED);
+		setResim(new int[]{0xFFFF7171, 0xffffffff}, gorunum.getBayrak().getSecilen());
+
+		if(!enabled)
+		{
+            this.setTextColor(Color.RED);
+            this.setText("X");
+        }
 	}
 
-	public void setSoruIsaretiSimgesi(boolean enabled)
+    public void setSoruIsaretiSimgesi(boolean enabled)
 	{
-		this.setBackgroundResource(gorunum.getSoruIsareti().getSecilen());
-		this.setTextColor((enabled)?Color.BLACK:Color.RED);
+        setResim(new int[]{0xFFFFFD97, 0xffffffff}, gorunum.getSoruIsareti().getSecilen());
+
+        if(!enabled)
+        {
+            this.setTextColor(Color.RED);
+            this.setText("X");
+        }
 	}
+
+    private void setResim(int[] colors, int resim) {
+        LayerDrawable layerDrawable = (LayerDrawable) getResources()
+                .getDrawable(R.drawable.karerenk);
+        layerDrawable.mutate();
+        GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable
+                .findDrawableByLayerId(R.id.karerenk);
+
+        if(resim == 0) resim = R.drawable.bos;
+
+        gradientDrawable.setColors(colors);
+        Drawable degistir = (Drawable) getResources().getDrawable(resim);
+        layerDrawable.setDrawableByLayerId(R.id.kareresim, degistir);
+        layerDrawable.invalidateSelf();
+        this.setBackground(layerDrawable);
+    }
 
 	public void setDisabledKare(boolean enabled)
 	{
-		this.setBackgroundResource((!enabled)?gorunum.getKareAcik().getSecilen():gorunum.getKareKapali().getSecilen());
+		int kareKapaliRenk = ContextCompat.getColor(getContext(), gorunum.getKareKapali().getSecilen());
+		if(!enabled) this.setBackgroundResource(gorunum.getKareAcik().getSecilen());
+		else setResim(new int[]{kareKapaliRenk, 0xffffffff}, 0);
 	}
 
 	public void tumSimgeleriTemizle()
@@ -101,6 +135,7 @@ public class Kare extends Button
 
 	private void setKalinYaziTipi()
 	{
+		this.setTextSize(26);
 		this.setTypeface(null, Typeface.BOLD);
 	}
 
@@ -130,6 +165,7 @@ public class Kare extends Button
 			this.setText(Integer.toString(indeks));
 			this.setGravity(Gravity.CENTER);
 
+			//TODO: Colors.xml e taşı
 			List<Integer> metinRenkleri = Arrays.asList(Color.BLUE,
 					Color.rgb(0, 100, 0),
 					Color.RED,

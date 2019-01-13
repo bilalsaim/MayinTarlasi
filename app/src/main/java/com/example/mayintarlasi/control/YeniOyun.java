@@ -158,7 +158,7 @@ public class YeniOyun extends Activity {
                             mayinlariYerlestir(gecerliSatir, gecerliSutun);
                         }
 
-                        if (!kareler[gecerliSatir][gecerliSutun].isBayrak())
+                        if (!kareler[gecerliSatir][gecerliSutun].isBayrak() && !kareler[gecerliSatir][gecerliSutun].isSoruIsareti())
                         {
                             kareAc(gecerliSatir, gecerliSutun);
 
@@ -179,46 +179,44 @@ public class YeniOyun extends Activity {
                     {
                         if(isOyunBitti || !kareler[gecerliSatir][gecerliSutun].isKapali()) return true;
 
-                        if(secenek.isSoruIsareti())
+                        if (kareler[gecerliSatir][gecerliSutun].isClickable() &&
+                                (kareler[gecerliSatir][gecerliSutun].isEnabled() || kareler[gecerliSatir][gecerliSutun].isBayrak()))
                         {
-                            if (kareler[gecerliSatir][gecerliSutun].isClickable() &&
-                                    (kareler[gecerliSatir][gecerliSutun].isEnabled() || kareler[gecerliSatir][gecerliSutun].isBayrak()))
+                            if (!kareler[gecerliSatir][gecerliSutun].isBayrak() && !kareler[gecerliSatir][gecerliSutun].isSoruIsareti())
                             {
-                                if (!kareler[gecerliSatir][gecerliSutun].isBayrak() && !kareler[gecerliSatir][gecerliSutun].isSoruIsareti())
+                                kareler[gecerliSatir][gecerliSutun].setDisabledKare(false);
+                                kareler[gecerliSatir][gecerliSutun].setBayrakSimgesi(true);
+                                kareler[gecerliSatir][gecerliSutun].setBayrak(true);
+                                kalanMayin--;
+                                mayinSayisiGostergesiniGuncelle();
+                            }
+                            else if (!kareler[gecerliSatir][gecerliSutun].isSoruIsareti() && secenek.isSoruIsareti())
+                            {
+                                kareler[gecerliSatir][gecerliSutun].setDisabledKare(true);
+                                kareler[gecerliSatir][gecerliSutun].setSoruIsaretiSimgesi(true);
+                                kareler[gecerliSatir][gecerliSutun].setBayrak(false);
+                                kareler[gecerliSatir][gecerliSutun].setSoruIsareti(true);
+                                kalanMayin++;
+                                mayinSayisiGostergesiniGuncelle();
+                            }
+                            else
+                            {
+                                kareler[gecerliSatir][gecerliSutun].setDisabledKare(true);
+                                kareler[gecerliSatir][gecerliSutun].tumSimgeleriTemizle();
+                                kareler[gecerliSatir][gecerliSutun].setSoruIsareti(false);
+
+                                if (kareler[gecerliSatir][gecerliSutun].isBayrak())
                                 {
-                                    kareler[gecerliSatir][gecerliSutun].setDisabledKare(false);
-                                    kareler[gecerliSatir][gecerliSutun].setBayrakSimgesi(true);
-                                    kareler[gecerliSatir][gecerliSutun].setBayrak(true);
-                                    kalanMayin--;
-                                    mayinSayisiGostergesiniGuncelle();
-                                }
-                                else if (!kareler[gecerliSatir][gecerliSutun].isSoruIsareti())
-                                {
-                                    kareler[gecerliSatir][gecerliSutun].setDisabledKare(true);
-                                    kareler[gecerliSatir][gecerliSutun].setSoruIsaretiSimgesi(true);
-                                    kareler[gecerliSatir][gecerliSutun].setBayrak(false);
-                                    kareler[gecerliSatir][gecerliSutun].setSoruIsareti(true);
                                     kalanMayin++;
                                     mayinSayisiGostergesiniGuncelle();
                                 }
-                                else
-                                {
-                                    kareler[gecerliSatir][gecerliSutun].setDisabledKare(true);
-                                    kareler[gecerliSatir][gecerliSutun].tumSimgeleriTemizle();
-                                    kareler[gecerliSatir][gecerliSutun].setSoruIsareti(false);
 
-                                    if (kareler[gecerliSatir][gecerliSutun].isBayrak())
-                                    {
-                                        kalanMayin++;
-                                        mayinSayisiGostergesiniGuncelle();
-                                    }
-
-                                    kareler[gecerliSatir][gecerliSutun].setBayrak(false);
-                                }
-
-                                mayinSayisiGostergesiniGuncelle();
+                                kareler[gecerliSatir][gecerliSutun].setBayrak(false);
                             }
+
+                            mayinSayisiGostergesiniGuncelle();
                         }
+
                         return true;
                     }
                 });
