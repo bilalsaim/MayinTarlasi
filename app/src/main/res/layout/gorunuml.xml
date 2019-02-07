@@ -95,25 +95,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:checked="true"
-                android:drawableRight="@drawable/mayinsekli1"
+                android:drawableRight="@drawable/mayinkizgin"
                 android:paddingTop="5dp"
-                android:text="Mayın 1"
+                android:text="Mayın Kızgın"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/gRadioMayin2"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:drawableRight="@drawable/mayinsekli2"
-                android:text="Mayın 2"
+                android:drawableRight="@drawable/mayinmutlu"
+                android:text="Mayın Mutlu"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/gRadioMayin3"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:drawableRight="@drawable/mayinsekli3"
-                android:text="Mayın 3"
+                android:drawableRight="@drawable/mayinuzgun"
+                android:text="Mayın Üzgün"
                 android:textSize="18sp" />
         </RadioGroup>
 

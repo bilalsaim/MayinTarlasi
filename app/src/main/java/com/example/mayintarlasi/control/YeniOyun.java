@@ -84,13 +84,13 @@ public class YeniOyun extends Activity {
 
     private void oyunuSifirla()
     {
+        btnBaslat.setBackgroundResource(R.drawable.smiley_button_states);
         int buyukKenar = Math.max(secenek.getX(), secenek.getY());
         mayinYakinlastirma.setMaxZoom((float) (((buyukKenar-9.0)*0.1)+3.0), 0);
         mayinYakinlastirma.zoomTo(1f, true);
         zamaniDurdur();
         textZaman.setText("000");
         textMayinSayisi.setText("000");
-        btnBaslat.setBackgroundResource(R.drawable.smile);
         mayinAlani.removeAllViews();
 
         isZamanBasladi = false;
@@ -167,8 +167,10 @@ public class YeniOyun extends Activity {
                             {
                                 oyunKaybedildi(gecerliSatir,gecerliSutun);
                             }
-                            
-                            if (kazanmaKontrol()) oyunKazanildi();
+                            else if (kazanmaKontrol())
+                            {
+                                oyunKazanildi();
+                            }
                         }
                     }
                 });
@@ -309,7 +311,7 @@ public class YeniOyun extends Activity {
 
 	private void mayinSayisiGostergesiniGuncelle()
 	{
-        String onEk = (gecenSure < 100)? StringUtils.repeat("0", 3-String.valueOf(kalanMayin).length()) : "";
+	    String onEk = (kalanMayin < 100 && kalanMayin >= 0)? StringUtils.repeat("0", 3-String.valueOf(kalanMayin).length()) : "";
 		textMayinSayisi.setText(onEk + Integer.toString(kalanMayin));
 	}
 
@@ -352,18 +354,20 @@ public class YeniOyun extends Activity {
 		{
 			for (int sutun = 1; sutun < secenek.getY() + 1; sutun++)
 			{
-				kareler[satir][sutun].setDisabledKare(false);
                 kareler[satir][sutun].setClickable(false);
 
 				if (kareler[satir][sutun].isMayin() && !kareler[satir][sutun].isBayrak())
 				{
 					kareler[satir][sutun].setMineIcon(false);
 				}
-
-				if (!kareler[satir][sutun].isMayin() && kareler[satir][sutun].isBayrak())
+				else if (!kareler[satir][sutun].isMayin() && kareler[satir][sutun].isBayrak())
 				{
 					kareler[satir][sutun].setBayrakSimgesi(false);
 				}
+				else if (!(kareler[satir][sutun].isMayin() && kareler[satir][sutun].isBayrak()))
+                {
+                    //kareler[satir][sutun].kareAc();
+                }
 			}
 		}
 

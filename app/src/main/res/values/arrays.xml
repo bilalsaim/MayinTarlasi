@@ -10,9 +10,9 @@
         <item>@drawable/karerenkacik</item>
     </integer-array>
     <integer-array name="mayin">
-        <item>@drawable/mayinsekli1</item>
-        <item>@drawable/mayinsekli2</item>
-        <item>@drawable/mayinsekli3</item>
+        <item>@drawable/mayinkizgin</item>
+        <item>@drawable/mayinmutlu</item>
+        <item>@drawable/mayinuzgun</item>
     </integer-array>
     <integer-array name="soruIsareti">
         <item>@drawable/soruisareti</item>

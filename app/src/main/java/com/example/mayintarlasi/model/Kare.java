@@ -70,7 +70,7 @@ public class Kare extends Button
 
 	public void setMineIcon(boolean enabled)
 	{
-		this.setBackgroundResource(gorunum.getMayin().getSecilen());
+		setResim(new int[]{0xFFB8B6FF, 0xffffffff}, gorunum.getMayin().getSecilen());
 
 		if (!enabled)
 		{
@@ -147,14 +147,8 @@ public class Kare extends Button
 		setDisabledKare(false);
 		isKapali = false;
 
-		if (isMayin())
-		{
-			setMineIcon(false);
-		}
-		else
-		{
-			komsuMayinSayisiniAyarla(komsuMayinSayisi);
-		}
+		if (isMayin()) setMineIcon(false);
+		else komsuMayinSayisiniAyarla(komsuMayinSayisi);
 	}
 
 
