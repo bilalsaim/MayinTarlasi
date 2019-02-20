@@ -49,21 +49,21 @@
                 android:id="@+id/aBtnYeni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yeni Oyun" />
+                android:text="@string/title_activity_yeni_oyun" />
 
             <Button
                 android:id="@+id/aBtnGorunum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Görünüm" />
+                android:text="@string/title_activity_gorunum" />
 
             <Button
                 android:id="@+id/aBtnSecenek"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Seçenekler" />
+                android:text="@string/title_activity_secenekler" />
 
             <Button
                 android:id="@+id/aBtnYardim"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Yardım" />
+                android:text="@string/title_activity_yardim" />
         </LinearLayout>
 
     </LinearLayout>

@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Kurallar ve Temel Bilgiler"
+                android:text="@string/yardim_satir_1"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Amaç"
+                android:text="@string/yardim_satir_2"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mayınlardan kaçınarak boş kareleri bulmak. Tahtayı ne kadar hızlı temizlerseniz, skorunuz o kadar yüksek olur."
+                android:text="@string/yardim_satir_3"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Oyun tahtası"
+                android:text="@string/yardim_satir_4"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000"
                 android:textStyle="bold" />
@@ -67,7 +67,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mayın tarlasının farklı zorluk düzeylerinde seçebileceğiniz üç standart tahtası vardır.\n    -Acemi: 81 kare, 10 mayın\n    -Deneyimli: 256 kare, 40 mayın\n    -Uzman: 480 kare, 99 mayın"
+                android:text="@string/yardim_satir_5"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000" />
 
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Nasıl oynanır"
+                android:text="@string/yardim_satir_6"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000"
                 android:textStyle="bold" />
@@ -85,7 +85,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mayın Tarlası&apos;nın kuralları basittir:\n  -Bir mayını açarsanız, oyun sona erer.\n  -Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir.\n  -Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız."
+                android:text="@string/yardim_satir_7"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000" />
 
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="İpuçları ve öneriler"
+                android:text="@string/yardim_satir_8"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000"
                 android:textStyle="bold" />
@@ -103,7 +103,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mayınları işaretleyin. Bir karede mayın gizlendiğinden şüpheleniyorsanız, kareye basılı tutun. Kareye bir bayrak eklenir. (Emin değilseniz, soru işareti eklemek için tekrar basılı tutun.)"
+                android:text="@string/yardim_satir_9"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000" />
 
@@ -111,7 +111,7 @@
                 android:id="@+id/yBtnGeri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Geri" />
+                android:text="@string/geri" />
 
         </LinearLayout>
     </ScrollView>

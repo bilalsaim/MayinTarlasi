@@ -7,8 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 import com.example.mayintarlasi.R;
 import com.example.mayintarlasi.model.Kare;
 import com.example.mayintarlasi.model.Secenek;
+import com.otaliastudios.zoom.ZoomApi;
 import com.otaliastudios.zoom.ZoomLayout;
 
 import org.apache.commons.lang3.StringUtils;
@@ -48,15 +51,17 @@ public class YeniOyun extends Activity {
     private Secenek secenek;
 
     private int kareBoyutu = 128; // Blok yükseklikleri
-    private int kareBoslugu = 2; // Kareler arası boşluklar
+    private int kareBoslugu = 0; // Kareler arası boşluklar
     private TableLayout mayinAlani;
     private ZoomLayout mayinYakinlastirma;
+    GestureDetector gestureDetector;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.yenioyunl);
+        gestureDetector = new GestureDetector(this.getBaseContext(), new GestureListener());
 
         secenek = Secenek.getInstance();
         mayinYakinlastirma = (ZoomLayout) findViewById(R.id.mayinYakinlastirma);
@@ -67,7 +72,7 @@ public class YeniOyun extends Activity {
 		sesKaybetme = MediaPlayer.create(this, R.raw.oyunkaybedildi);
 		sesKazanma = MediaPlayer.create(this, R.raw.alkis);
 
-		showDialog("Oyunu başlatmak için surata tıklatınız!", 5000, true, false);
+		showDialog(getString(R.string.oyun_baslat), 5000, true, false);
 
         btnBaslat = (ImageButton) findViewById(R.id.yoBtnBaslat);
         btnBaslat.setOnClickListener(new OnClickListener()
@@ -80,13 +85,29 @@ public class YeniOyun extends Activity {
         });
 
         mayinAlani = (TableLayout)findViewById(R.id.MayinAlani);
+
+        mayinAlani.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
+
+        mayinYakinlastirma.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
 	}
 
     private void oyunuSifirla()
     {
         btnBaslat.setBackgroundResource(R.drawable.smiley_button_states);
         int buyukKenar = Math.max(secenek.getX(), secenek.getY());
-        mayinYakinlastirma.setMaxZoom((float) (((buyukKenar-9.0)*0.1)+3.0), 0);
+        mayinYakinlastirma.setMaxZoom((float) (((buyukKenar-9.0)*0.1)+3.0), ZoomApi.TYPE_ZOOM);
         mayinYakinlastirma.zoomTo(1f, true);
         zamaniDurdur();
         textZaman.setText("000");
@@ -137,6 +158,14 @@ public class YeniOyun extends Activity {
 
                 final int gecerliSatir = satir;
                 final int gecerliSutun = sutun;
+
+                kareler[satir][sutun].setOnTouchListener(new View.OnTouchListener()
+                {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        return gestureDetector.onTouchEvent(event);
+                    }
+                });
 
                 kareler[satir][sutun].setOnClickListener(new OnClickListener()
                 {
@@ -340,7 +369,7 @@ public class YeniOyun extends Activity {
 
 		if(secenek.isSes()) sesKazanma.start();
         
-		showDialog("Kazandın " + Integer.toString(gecenSure) + " saniyede!", 1000, false, true);
+		showDialog(String.format(getString(R.string.oyun_kazandin), gecenSure), 1000, false, true);
 	}
 
 	private void oyunKaybedildi(int gecerliSatir, int gecerliSutun)
@@ -374,7 +403,7 @@ public class YeniOyun extends Activity {
 		kareler[gecerliSatir][gecerliSutun].triggerMine();
 		if(secenek.isSes()) sesKaybetme.start();
 
-		showDialog("Tekrar Dene " + Integer.toString(gecenSure) + " saniye!", 1000, false, false);
+		showDialog(String.format(getString(R.string.oyun_kaybettin), gecenSure), 1000, false, false);
 	}
 
 	private void kareAc(int tiklananSatir, int tiklananSutun)
@@ -440,5 +469,22 @@ public class YeniOyun extends Activity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+    }
+
+    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return false;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            if(mayinYakinlastirma.getZoom() == 1f) {
+
+            }
+            else
+                mayinYakinlastirma.zoomTo(1f, true);
+            return true;
+        }
     }
 }

@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="Zorluk Düzeyi"
+                    android:text="@string/secenekler_zorluk"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -66,7 +66,7 @@
                         android:gravity="center_vertical"
                         android:onClick="onRadioButtonClicked"
                         android:paddingBottom="0dp"
-                        android:text="Acemi\n9 x 9 - 10 Mayın"
+                        android:text="@string/secenekler_zorluk_acemi"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -80,7 +80,7 @@
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
                         android:paddingTop="0dp"
-                        android:text="Deneyimli\n16 x 16 - 40 Mayın"
+                        android:text="@string/secenekler_zorluk_deneyimli"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -90,7 +90,7 @@
                         android:layout_marginTop="3dp"
                         android:gravity="center_vertical"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Uzman\n16x30 - 99 Mayın"
+                        android:text="@string/secenekler_zorluk_uzman"
                         android:textSize="14sp" />
 
                     <RadioButton
@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Özel"
+                        android:text="@string/secenekler_zorluk_ozel"
                         android:textSize="14sp" />
 
                 </RadioGroup>
@@ -108,7 +108,7 @@
                     android:id="@+id/sTextGenislik"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Genişlik (9-16)"
+                    android:text="@string/secenekler_ozel_genislik"
                     android:textSize="13sp" />
 
                 <SeekBar
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="Yükseklik (9-30)"
+                    android:text="@string/secenekler_ozel_yukseklik"
                     android:textSize="13sp" />
 
                 <SeekBar
@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="Mayın (10-400)"
+                    android:text="@string/secenekler_ozel_mayin"
                     android:textSize="13sp" />
 
                 <SeekBar
@@ -158,7 +158,7 @@
                 android:id="@+id/sTextOzellikler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Özellikler"
+                android:text="@string/secenekler_ozellikler"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -168,25 +168,25 @@
                 android:id="@+id/sCheckSoruIsareti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Soru işareti" />
+                android:text="@string/secenekler_soru_isareti" />
 
             <CheckBox
                 android:id="@+id/sCheckSes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sesleri Çal" />
+                android:text="@string/secenekler_sesler" />
 
             <Button
                 android:id="@+id/sBtnKaydet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kaydet" />
+                android:text="@string/kaydet" />
 
             <Button
                 android:id="@+id/sBtnGeri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Geri" />
+                android:text="@string/geri" />
         </LinearLayout>
     </LinearLayout>
 

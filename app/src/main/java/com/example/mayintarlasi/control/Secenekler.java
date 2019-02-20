@@ -67,7 +67,8 @@ public class Secenekler extends Activity {
 				(TextView)findViewById(R.id.sTextYukseklik),
 				(TextView)findViewById(R.id.sTextMayin)};
 
-		zorlukOzelMetin = new String[]{"Genişlik (9-16): %d", "Yükseklik (9-30): %d", "Mayın (10-400): %d"};
+		zorlukOzelMetin = new String[]{getString(R.string.secenekler_ozel_genislik_f),
+                getString(R.string.secenekler_ozel_yukseklik_f), getString(R.string.secenekler_ozel_mayin_f)};
 		zorlukOzel = secenek.getZorluk().equals(Zorluk.OZEL);
 
 		if(zorlukOzel){
@@ -122,7 +123,6 @@ public class Secenekler extends Activity {
 			});
 		}
 
-
 		sBtnKaydet = (Button) findViewById(R.id.sBtnKaydet);
 		sBtnKaydet.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
@@ -157,47 +157,6 @@ public class Secenekler extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.secenekler, menu);
 		return true;
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		Dialog dialog;
-
-		AlertDialog.Builder builder;
-		switch(id) {
-			case ALERT_DIALOG1:
-				builder = new AlertDialog.Builder(this);
-				builder.setMessage("Lütfen girdiğiniz sayıların verilen aralıklarda olmasına dikkat ediniz!")
-						.setCancelable(false)
-						.setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								//Do something here
-							}
-						});
-				dialog = builder.create();
-				break;
-			case ALERT_DIALOG2:
-				builder = new AlertDialog.Builder(this);
-				builder.setMessage("Kullanıcı adı veya Şifre alanı boş bırakılamaz!")
-						.setCancelable(false)
-						.setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								//Do something here
-							}
-						})
-						.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								//Do something here
-							}
-						});
-
-				dialog = builder.create();
-				break;
-			default:
-				dialog = null;
-		}
-		return dialog;
-
 	}
 
 	public void onRadioButtonClicked(View view) {

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Kare Rengi"
+            android:text="@string/gorunum_renk"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
@@ -40,7 +40,7 @@
                 android:checked="true"
                 android:drawablePadding="2dp"
                 android:drawableRight="@drawable/kare1"
-                android:text="Yeşil"
+                android:text="@string/yesil"
                 android:textSize="18dp" />
 
             <RadioButton
@@ -49,7 +49,7 @@
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/kare2"
                 android:gravity="left|center_vertical|start"
-                android:text="Kırmızı"
+                android:text="@string/kirmizi"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -59,7 +59,7 @@
                 android:drawablePadding="7dp"
                 android:drawableRight="@drawable/kare3"
                 android:gravity="center_vertical|start|clip_vertical"
-                android:text="Mor"
+                android:text="@string/mor"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -68,7 +68,7 @@
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/kare4"
                 android:gravity="right|center_vertical|start"
-                android:text="Turuncu"
+                android:text="@string/turuncu"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -79,7 +79,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Mayın Şekli"
+            android:text="@string/gorunum_sekil"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
@@ -97,7 +97,7 @@
                 android:checked="true"
                 android:drawableRight="@drawable/mayinkizgin"
                 android:paddingTop="5dp"
-                android:text="Mayın Kızgın"
+                android:text="@string/gorunum_kizgin"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/mayinmutlu"
-                android:text="Mayın Mutlu"
+                android:text="@string/gorunum_mutlu"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:drawableRight="@drawable/mayinuzgun"
-                android:text="Mayın Üzgün"
+                android:text="@string/gorunum_uzgun"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Kaydet"
+                android:text="@string/kaydet"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp"
                 android:typeface="normal"
@@ -138,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Geri"
+                android:text="@string/geri"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:typeface="normal"
