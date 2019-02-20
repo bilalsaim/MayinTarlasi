@@ -1,6 +1,6 @@
-# Mayın Tarlası? (Mine)
+# Mayın Tarlası? (Minesweeper)
 
-Meşhur Kim Milyoner Olmak İster yarışma programının Java programlama dilinde yazılmış masaüstü oyunudur. 2012'de geliştirmiştir ve sonrasında kod güncellemesi yapılmıştır. (It's a desktop game which built on Java. The game is based on "Who Wants to Be a Millionaire" quiz show. Developed in 2012 and then made code update.
+Alışılmış Mayın Tarlası oyununun Android uygulama olarak yazılmış hali. Proje 2013'de geliştirmiştir ve sonrasında kod güncellemesi yapılmıştır. (It's typical Minesweeper game on Android platform. Developed in 2013 and then made code update.
 
 ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi1.png)            |  ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi2.png) | ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi3.png)| ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi4.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
@@ -10,18 +10,20 @@ Meşhur Kim Milyoner Olmak İster yarışma programının Java programlama dilin
 
 ## Bilgiler
 
-* **Programlama dili:** `JAVA 1.8`
-* **Yazılım tarihi:** `2012`
-* **Kütüphaneler:** `JUnit`, `Log4j`
-* **Çalışma ortamı:** `Masaüstü`
+* **Programlama dili:** `JAVA`
+* **Platform:** `Android`
+* **Yazılım tarihi:** `2013`
+* **Kütüphaneler:** `Zoomlayout`, `Apache.commons`
+* **Çalışma ortamı:** `Android`
 * **İnşa sistemi:** `Gradle`
-* **Proje sürümü:** `1.1`
+* **Proje sürümü:** `1.4`
 
 ## Detaylar
 
-* Sorular main modülünün altındaki Resource klasörünün içinde bulunan Sorular.txt dosyasından okunur. Her satırda tab karakterleri kullanılarak veriler ayrılır. Satırdaki veriler: Soru, Şık A, Şık B, Şık C, Şık D, Cevap, Düzey olarak tutulur. Düzey sorunun zorluk düzeyini belirtir. 1 den 2 ye kadar olan sorular 1. düzey, 2 den 7 olan sorular 2. düzey, 7 den 12 ye olan sorular ise 3. düzey sorulardan seçilir.
-* Skorlar main modülünün altındaki Resource klasörünün içinde bulunan Skorlar.txt dosyasına yazılır.
-* Arka plan veya diğer resimlerin Illustration dosyaları projenin içinde bulunan graphics klasörünün altında yer alır.
+* Mayınlardan kaçınarak boş kareleri bulmak. Tahtayı ne kadar hızlı temizlerseniz, skorunuz o kadar yüksek olur.
+* Mayın tarlasının farklı zorluk düzeylerinde seçebileceğiniz üç standart tahtası vardır. -Acemi: 81 kare, 10 mayın -Deneyimli: 256 kare, 40 mayın -Uzman: 480 kare, 99 mayın
+* Oyunun kuralları basittir:\n  -Bir mayını açarsanız, oyun sona erer.\n  -Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir.\n  -Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız.
+* Mayınları işaretleyin. Bir karede mayın gizlendiğinden şüpheleniyorsanız, kareye basılı tutun. Kareye bir bayrak eklenir. (Emin değilseniz, soru işareti eklemek için tekrar basılı tutun.)
 
 ## Yazar
 
