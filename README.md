@@ -5,7 +5,7 @@ Meşhur Kim Milyoner Olmak İster yarışma programının Java programlama dilin
 ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi1.png)            |  ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi2.png) | ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi3.png)| ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi4.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
  
-![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi5.png)| ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi6.png)
+![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi5a.png)| ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi6.png)
 :-------------------------:|:-------------------------:
 
 ## Bilgiler
