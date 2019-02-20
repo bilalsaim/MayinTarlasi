@@ -1,10 +1,10 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-import com.example.mayintarlasi.R;
+import com.bilisel.mayintarlasi.R;
 
 public class Yardim extends Activity {
     @Override

@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,9 +17,9 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.mayintarlasi.R;
-import com.example.mayintarlasi.model.Secenek;
-import com.example.mayintarlasi.model.Zorluk;
+import com.bilisel.mayintarlasi.R;
+import com.bilisel.mayintarlasi.model.Secenek;
+import com.bilisel.mayintarlasi.model.Zorluk;
 
 public class Secenekler extends Activity {
 	private Secenek secenek;

@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.mayintarlasi.R;
-import com.example.mayintarlasi.model.Gorunum;
+import com.bilisel.mayintarlasi.R;
+import com.bilisel.mayintarlasi.model.Gorunum;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Gorunumler extends Activity {

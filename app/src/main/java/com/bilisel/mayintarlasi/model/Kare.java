@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.model;
+package com.bilisel.mayintarlasi.model;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.Button;
 
-import com.example.mayintarlasi.R;
+import com.bilisel.mayintarlasi.R;
 
 import java.util.Arrays;
 import java.util.List;

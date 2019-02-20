@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mayintarlasi"
+    package="com.bilisel.mayintarlasi"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/MayinTarlasiTheme" >
         <activity
-            android:name="com.example.mayintarlasi.control.AnaMenu"
+            android:name="com.bilisel.mayintarlasi.control.AnaMenu"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.Secenekler"
+            android:name="com.bilisel.mayintarlasi.control.Secenekler"
             android:label="@string/title_activity_secenekler"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.Gorunumler"
+            android:name="com.bilisel.mayintarlasi.control.Gorunumler"
             android:label="@string/title_activity_gorunum">
             <intent-filter>
                 <action android:name="android.intent.action.Gorunumler" />
@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.YeniOyun"
+            android:name="com.bilisel.mayintarlasi.control.YeniOyun"
             android:label="@string/title_activity_yeni_oyun"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.Yardim"
+            android:name="com.bilisel.mayintarlasi.control.Yardim"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_yardim">
             <intent-filter>
@@ -58,7 +58,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.control.Istatistikler"
+            android:name="com.bilisel.mayintarlasi.control.Istatistikler"
             android:label="@string/title_activity_istatistikler">
             <intent-filter>
                 <action android:name="android.intent.action.Istatistikler" />

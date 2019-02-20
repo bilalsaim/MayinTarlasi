@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.model;
+package com.bilisel.mayintarlasi.model;
 
 public enum Zorluk {
     ACEMI(0, 9, 9, 10),
