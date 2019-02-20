@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.example.mayintarlasi.R;
-import com.example.mayintarlasi.model.Gorunum;
+import com.bilisel.mayintarlasi.R;
+import com.bilisel.mayintarlasi.model.Gorunum;
 
 public class AnaMenu extends Activity {
 

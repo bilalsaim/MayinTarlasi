@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.model;
+package com.bilisel.mayintarlasi.model;
 
 public class Secenek {
     private static Secenek singleton = new Secenek();

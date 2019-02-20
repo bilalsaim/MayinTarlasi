@@ -5,7 +5,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        applicationId "com.example.mayintarlasi"
+        applicationId "com.bilisel.mayintarlasi"
         minSdkVersion 16
         targetSdkVersion 27
     }

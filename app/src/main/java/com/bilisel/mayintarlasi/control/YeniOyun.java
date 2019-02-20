@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -23,9 +23,9 @@ import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mayintarlasi.R;
-import com.example.mayintarlasi.model.Kare;
-import com.example.mayintarlasi.model.Secenek;
+import com.bilisel.mayintarlasi.R;
+import com.bilisel.mayintarlasi.model.Kare;
+import com.bilisel.mayintarlasi.model.Secenek;
 import com.otaliastudios.zoom.ZoomApi;
 import com.otaliastudios.zoom.ZoomLayout;
 

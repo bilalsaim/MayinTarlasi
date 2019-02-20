@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.model;
+package com.bilisel.mayintarlasi.model;
 
 import android.content.res.TypedArray;
 

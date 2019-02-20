@@ -1,4 +1,4 @@
-package com.example.mayintarlasi.control;
+package com.bilisel.mayintarlasi.control;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
