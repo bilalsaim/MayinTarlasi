@@ -1,13 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">MayinTarlasi</string>
+    <string name="app_name">Emo Minesweeper</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_oyun_menu">OyunMenu</string>
-    <string name="title_activity_cikis">Cikis</string>
-    <string name="title_activity_secenekler">Secenekler</string>
-    <string name="title_activity_gorunum">Gorunum</string>
-    <string name="title_activity_yeni_oyun">YeniOyun</string>
+    <string name="title_activity_secenekler">Settings</string>
+    <string name="title_activity_gorunum">Display</string>
+    <string name="title_activity_yeni_oyun">New Game</string>
+    <string name="title_activity_yardim">Help</string>
+    <string name="title_activity_istatistikler">Statistic</string>
 
+    <string name="kaydet">Save</string>
+    <string name="geri">Back</string>
+
+    <string name="oyun_baslat">Click the face icon to start the game!</string>
+    <string name="oyun_kazandin">You win! Game duration %d seconds!</string>
+    <string name="oyun_kaybettin">"You lose! Game duration %d seconds!"</string>
+
+    <string name="gorunum_renk">Mine Color</string>
+    <string name="gorunum_sekil">Mine Mood</string>
+    <string name="gorunum_kizgin">Angry Mine</string>
+    <string name="gorunum_mutlu">Happy Mine</string>
+    <string name="gorunum_uzgun">Sad Mine</string>
+    <string name="kirmizi">Red</string>
+    <string name="mor">Purple</string>
+    <string name="yesil">Green</string>
+    <string name="turuncu">Orange</string>
+
+    <string name="secenekler_zorluk">Game Level</string>
+    <string name="secenekler_zorluk_acemi">Easy\n9 x 9 - 10 Mines</string>
+    <string name="secenekler_zorluk_ozel">Custom</string>
+    <string name="secenekler_ozel_genislik">Width (9-16)</string>
+    <string name="secenekler_ozel_yukseklik">Height (9-30)</string>
+    <string name="secenekler_ozel_mayin">Mines (10-400)</string>
+    <string name="secenekler_ozel_genislik_f">Width (9-16): %d</string>
+    <string name="secenekler_ozel_yukseklik_f">Height (9-30): %d</string>
+    <string name="secenekler_ozel_mayin_f">Mines (10-400): %d</string>
+    <string name="secenekler_ozellikler">More</string>
+    <string name="secenekler_zorluk_deneyimli">Medium\n16 x 16 - 40 Mines</string>
+    <string name="secenekler_zorluk_uzman">Expert\n16x30 - 99 Mines</string>
+    <string name="secenekler_soru_isareti">Question Mark</string>
+    <string name="secenekler_sesler">Sounds</string>
+
+    <string name="yardim_satir_1">Rules and Basics</string>
+    <string name="yardim_satir_2">Aim</string>
+    <string name="yardim_satir_3">To find empty squares which is without mines. You will get more points, if you clean board faster.</string>
+    <string name="yardim_satir_4">Game board</string>
+    <string name="yardim_satir_5">Minesweeper has 3 levels with different difficulties.\n    -Easy: 81 squares, 10 mines\n    -Medium: 256 squares, 40 mines\n    -Hard: 480 squares, 99 mines</string>
+    <string name="yardim_satir_6">How to play</string>
+    <string name="yardim_satir_7">The game has simple rules:\n  -If you open a square which has mine, the game will be over.\n  -If you open a square which has a number, this number shows that how many mines are located on the adjacent squares.\n  -You can figure out which squares are safe with this information.</string>
+    <string name="yardim_satir_8">Tips and Suggestions</string>
+    <string name="yardim_satir_9">Mark the mines. If you suspect a square which might contain a mine, Click long on the square. It will add a flag which shows that the square has a mine (If you are not that sure, click long again. It will add a question mark.)</string>
 </resources>

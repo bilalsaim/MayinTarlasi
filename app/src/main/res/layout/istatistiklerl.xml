@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arkaplanrenk"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".control.Istatistikler" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="52dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/iTextMulti"
+            android:layout_width="match_parent"
+            android:layout_height="212dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:foreground="@android:color/transparent"
+            android:inputType="textMultiLine"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/iBtnAcemi"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Acemi" />
+
+            <Button
+                android:id="@+id/iBtnDeneyimli"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Deneyimli" />
+
+            <Button
+                android:id="@+id/iBtnUzman"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Uzman" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/iBtnGeri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geri" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/iTextBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp" />
+
+</RelativeLayout>

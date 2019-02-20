@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="kareKapali">
+        <item>@color/karerenk_yesil</item>
+        <item>@color/karerenk_kirmizi</item>
+        <item>@color/karerenk_mor</item>
+        <item>@color/karerenk_turuncu</item>
+    </integer-array>
+    <integer-array name="kareAcik">
+        <item>@drawable/karerenkacik</item>
+    </integer-array>
+    <integer-array name="mayin">
+        <item>@drawable/mayinkizgin</item>
+        <item>@drawable/mayinmutlu</item>
+        <item>@drawable/mayinuzgun</item>
+    </integer-array>
+    <integer-array name="soruIsareti">
+        <item>@drawable/soruisareti</item>
+    </integer-array>
+    <integer-array name="bayrak">
+        <item>@drawable/bayrak</item>
+    </integer-array>
+</resources>

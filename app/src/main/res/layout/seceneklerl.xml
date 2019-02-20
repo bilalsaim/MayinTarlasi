@@ -2,205 +2,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/arkaplan"
+    android:background="@drawable/arkaplanrenk"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Secenekler" >
+    tools:context=".control.Secenekler" >
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/checkBox1"
-        android:text="Soru işareti" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox4"
-        android:layout_alignTop="@+id/radioGroup1"
-        android:layout_marginTop="104dp"
-        android:text="Sesleri Çal" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox4"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/checkBox4"
-        android:text="İpuçları" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/sLinear1"
+        android:weightSum="2"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_toLeftOf="@+id/checkBox4"
-        android:gravity="left"
-        android:measureWithLargestChild="false"
-        android:orientation="vertical"
-        android:paddingBottom="0dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp"
-        android:paddingTop="0dp" >
+        android:layout_alignParentTop="true">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="0dp"
-            android:text="Zorluk Düzeyi"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:typeface="normal" />
 
-        <RadioButton
-            android:id="@+id/radioButton1"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/sNestedScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:checked="true"
-            android:gravity="center_vertical"
-            android:onClick="onRadioButtonClicked"
-            android:paddingBottom="0dp"
-            android:text="Acemi\n10 Mayın\n9 x 9 Döşeme"
-            android:textSize="14sp" />
+            android:layout_height="match_parent"
+            android:layout_gravity="fill_vertical"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:gravity="center_vertical"
-            android:onClick="onRadioButtonClicked"
-            android:paddingBottom="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:paddingTop="0dp"
-            android:text="Deneyimli\n40 Mayın\n16 x 16 Döşeme"
-            android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginTop="3dp"
-            android:gravity="center_vertical"
-            android:onClick="onRadioButtonClicked"
-            android:text="Uzman\n99 Mayın\n16 x 30 Döşeme"
-            android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/sTextDuzey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/secenekler_zorluk"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:typeface="normal"
+                    android:focusableInTouchMode="true"/>
 
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:onClick="onRadioButtonClicked"
-            android:text="Özel"
-            android:textSize="14sp" />
+                <RadioGroup
+                    android:id="@+id/sRadioGroupZorluk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:measureWithLargestChild="false"
+                    android:orientation="vertical"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:paddingTop="0dp">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="0dp"
-            android:text="Mayın (10-400)"
-            android:textSize="13sp" />
+                    <RadioButton
+                        android:id="@+id/sRadioZorluk1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:checked="true"
+                        android:gravity="center_vertical"
+                        android:onClick="onRadioButtonClicked"
+                        android:paddingBottom="0dp"
+                        android:text="@string/secenekler_zorluk_acemi"
+                        android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/mayinTBox"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="0dp"
-            android:editable="true"
-            android:ems="10"
-            android:text="10"
-            android:textSize="13sp" />
+                    <RadioButton
+                        android:id="@+id/sRadioZorluk2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center_vertical"
+                        android:onClick="onRadioButtonClicked"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="0dp"
+                        android:text="@string/secenekler_zorluk_deneyimli"
+                        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="0dp"
-            android:text="Genişlil (9-30)"
-            android:textSize="13sp" />
+                    <RadioButton
+                        android:id="@+id/sRadioZorluk3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center_vertical"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="@string/secenekler_zorluk_uzman"
+                        android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/genislikTextBox"
-            android:layout_width="98dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="0dp"
-            android:editable="true"
-            android:ems="10"
-            android:text="9"
-            android:textSize="13sp" />
+                    <RadioButton
+                        android:id="@+id/sRadioZorluk4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="@string/secenekler_zorluk_ozel"
+                        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:layout_marginTop="0dp"
-            android:text="Yükseklik (9-16)"
-            android:textSize="13sp" />
+                </RadioGroup>
 
-        <EditText
-            android:id="@+id/yukseklikTextBox"
-            android:layout_width="96dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:editable="true"
-            android:ems="10"
-            android:text="9"
-            android:textSize="13sp" />
-    </RadioGroup>
+                <TextView
+                    android:id="@+id/sTextGenislik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/secenekler_ozel_genislik"
+                    android:textSize="13sp" />
 
-    <Button
-        android:id="@+id/skaydetBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_below="@+id/checkBox2"
-        android:layout_marginTop="58dp"
-        android:text="Kaydet" />
+                <SeekBar
+                    android:id="@+id/sSeekGenislik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="7" />
 
-    <Button
-        android:id="@+id/sgeriBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/skaydetBtn"
-        android:layout_alignRight="@+id/skaydetBtn"
-        android:layout_below="@+id/skaydetBtn"
-        android:layout_marginTop="14dp"
-        android:text="Geri" />
+                <TextView
+                    android:id="@+id/sTextYukseklik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/secenekler_ozel_yukseklik"
+                    android:textSize="13sp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/checkBox1"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_marginBottom="39dp"
-        android:layout_marginLeft="16dp"
-        android:text="Özellikler"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+                <SeekBar
+                    android:id="@+id/sSeekYukseklik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="21" />
+
+                <TextView
+                    android:id="@+id/sTextMayin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/secenekler_ozel_mayin"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/sSeekMayin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="390" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sTextOzellikler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/secenekler_ozellikler"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/sCheckSoruIsareti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/secenekler_soru_isareti" />
+
+            <CheckBox
+                android:id="@+id/sCheckSes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/secenekler_sesler" />
+
+            <Button
+                android:id="@+id/sBtnKaydet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kaydet" />
+
+            <Button
+                android:id="@+id/sBtnGeri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/geri" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

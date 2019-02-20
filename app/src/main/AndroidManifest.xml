@@ -4,18 +4,14 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
-
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_mayin_simge"
         android:label="@string/app_name"
-       android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        android:theme="@style/MayinTarlasiTheme" >
         <activity
-            android:name="com.example.mayintarlasi.AnaMenu"
-            android:label="@string/app_name" >
+            android:name="com.example.mayintarlasi.control.AnaMenu"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,30 +19,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.OyunMenu"
-            android:label="@string/title_activity_oyun_menu" >
+            android:name="com.example.mayintarlasi.control.Secenekler"
+            android:label="@string/title_activity_secenekler"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
-                <action android:name="com.example.mayintarlasi.OyunMenu" />
+                <action android:name="android.intent.action.Secenekler" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.Secenekler"
-            android:label="@string/title_activity_secenekler" >
+            android:name="com.example.mayintarlasi.control.Gorunumler"
+            android:label="@string/title_activity_gorunum">
             <intent-filter>
-                <action android:name="com.example.mayintarlasi.Secenekler" />
+                <action android:name="android.intent.action.Gorunumler" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.Gorunum"
-            android:label="@string/title_activity_gorunum" >
-        </activity>
-        <activity
-            android:name="com.example.mayintarlasi.YeniOyun"
-            android:label="@string/title_activity_yeni_oyun" >
+            android:name="com.example.mayintarlasi.control.YeniOyun"
+            android:label="@string/title_activity_yeni_oyun"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.YeniOyun" />
 
@@ -54,12 +48,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.mayintarlasi.Devamkaydet"
-            android:label="@string/title_activity_devamkaydet">
+            android:name="com.example.mayintarlasi.control.Yardim"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_yardim">
             <intent-filter>
-                <action android:name="com.example.mayintarlasi.Devamkaydet" />
+                <action android:name="android.intent.action.Yardim" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mayintarlasi.control.Istatistikler"
+            android:label="@string/title_activity_istatistikler">
+            <intent-filter>
+                <action android:name="android.intent.action.Istatistikler" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

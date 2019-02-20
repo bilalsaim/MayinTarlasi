@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="holo_light_primary">#03a9f4</color>
+    <color name="holo_light_primary_dark">#ffffff</color>
+    <color name="background_holo_light">#7ed4ff</color>
+    <color name="bright_foreground_holo_light">#ffffff</color>
+    <color name="karerenk_bitis">#FFFFFFFF</color>
+    <color name="karerenk_yesil">#FF0E7D17</color>
+    <color name="karerenk_kirmizi">#FFD4000B</color>
+    <color name="karerenk_mor">#FFBF00FF</color>
+    <color name="karerenk_turuncu">#FFE59100</color>
+</resources>

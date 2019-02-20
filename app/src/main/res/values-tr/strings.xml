@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Emo Mayın Tarlası</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="title_activity_secenekler">Ayarlar</string>
+    <string name="title_activity_gorunum">Görünüm</string>
+    <string name="title_activity_yeni_oyun">Yeni Oyun</string>
+    <string name="title_activity_yardim">Yardım</string>
+    <string name="title_activity_istatistikler">İstatistikler</string>
+
+    <string name="kaydet">Kaydet</string>
+    <string name="geri">Geri</string>
+
+    <string name="oyun_baslat">Oyunu başlatmak için surata tıklayınız!</string>
+    <string name="oyun_kazandin">Kazandın! Geçen süre %d saniye!</string>
+    <string name="oyun_kaybettin">"Kaybettin! Geçen süre %d saniye!"</string>
+
+    <string name="gorunum_renk">Kare Rengi</string>
+    <string name="gorunum_sekil">Mayın Duygusu</string>
+    <string name="gorunum_kizgin">Kızgın Mayın</string>
+    <string name="gorunum_mutlu">Mutlu Mayın</string>
+    <string name="gorunum_uzgun">Üzgün Mayın</string>
+    <string name="kirmizi">Kırmızı</string>
+    <string name="mor">Mor</string>
+    <string name="yesil">Yeşil</string>
+    <string name="turuncu">Turuncu</string>
+
+    <string name="secenekler_zorluk">Zorluk Düzeyi</string>
+    <string name="secenekler_zorluk_acemi">Acemi\n9 x 9 - 10 Mayın</string>
+    <string name="secenekler_zorluk_deneyimli">Deneyimli\n16 x 16 - 40 Mayın</string>
+    <string name="secenekler_zorluk_uzman">Uzman\n16x30 - 99 Mayın</string>
+    <string name="secenekler_zorluk_ozel">Özel</string>
+    <string name="secenekler_ozel_genislik">Genişlik (9-16)</string>
+    <string name="secenekler_ozel_yukseklik">Yükseklik (9-30)</string>
+    <string name="secenekler_ozel_mayin">Mayın (10-400)</string>
+    <string name="secenekler_ozel_genislik_f">Genişlik (9-16): %d</string>
+    <string name="secenekler_ozel_yukseklik_f">Yükseklik (9-30): %d</string>
+    <string name="secenekler_ozel_mayin_f">Mayın (10-400): %d</string>
+    <string name="secenekler_ozellikler">Özellikler</string>
+    <string name="secenekler_soru_isareti">Soru işareti</string>
+    <string name="secenekler_sesler">Sesleri Çal</string>
+
+    <string name="yardim_satir_1">Kurallar ve Temel Bilgiler</string>
+    <string name="yardim_satir_2">Amaç</string>
+    <string name="yardim_satir_3">Mayınlardan kaçınarak boş kareleri bulmak. Tahtayı ne kadar hızlı temizlerseniz, skorunuz o kadar yüksek olur.</string>
+    <string name="yardim_satir_4">Oyun tahtası</string>
+    <string name="yardim_satir_5">Mayın tarlasının farklı zorluk düzeylerinde seçebileceğiniz üç standart tahtası vardır.\n    -Acemi: 81 kare, 10 mayın\n    -Deneyimli: 256 kare, 40 mayın\n    -Uzman: 480 kare, 99 mayın</string>
+    <string name="yardim_satir_6">Nasıl oynanır</string>
+    <string name="yardim_satir_7">Oyunun kuralları basittir:\n  -Bir mayını açarsanız, oyun sona erer.\n  -Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir.\n  -Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız.</string>
+    <string name="yardim_satir_8">İpuçları ve öneriler</string>
+    <string name="yardim_satir_9">Mayınları işaretleyin. Bir karede mayın gizlendiğinden şüpheleniyorsanız, kareye basılı tutun. Kareye bir bayrak eklenir. (Emin değilseniz, soru işareti eklemek için tekrar basılı tutun.)</string>
+</resources>
