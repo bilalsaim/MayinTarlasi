@@ -27,7 +27,7 @@ Alışılmış Mayın Tarlası oyununun Android uygulama olarak yazılmış hali
 
 ## Yazar
 
-* **Bilal Saim** - *Diğer Projeler* - [Github](https://github.com/bilalsaim) - [Kişisel İnternet Sayfası](https://github.com/bilalsaim)
+* **Bilal Saim** - *Diğer Projeler* - [Github](https://github.com/bilalsaim) - [Kişisel İnternet Sayfası](https://www.bilalsaim.com)
 
 ## License
 
