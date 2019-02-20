@@ -8,6 +8,8 @@ android {
         applicationId "com.bilisel.mayintarlasi"
         minSdkVersion 16
         targetSdkVersion 27
+        versionCode 4
+        versionName "1.4"
     }
 
     buildTypes {
