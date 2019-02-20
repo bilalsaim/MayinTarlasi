@@ -1,6 +1,6 @@
 # Mayın Tarlası? (Minesweeper)
 
-Alışılmış Mayın Tarlası oyununun Android uygulama olarak yazılmış hali. Proje 2013'de geliştirmiştir ve sonrasında kod güncellemesi yapılmıştır. Uygulama yatay kullanma, mayın alanına yakınlaştırma, zorluk değiştirme, Türkçe, İngilizce gibi farklı dil seçeneklerini destekler. (It's typical Minesweeper game on Android platform. Developed in 2013 and then made code update. The app has horizontal usage, zoom in to mine field, different levels, Turkish and English language support.
+Alışılmış Mayın Tarlası oyununun Android uygulama olarak yazılmış hali. Proje 2013'de geliştirmiştir ve sonrasında kod güncellemesi yapılmıştır. Uygulama yatay kullanma, mayın alanına yakınlaştırma, zorluk değiştirme, Türkçe ve İngilizce gibi farklı dil seçeneklerini destekler. (It's typical Minesweeper game on Android platform. Developed in 2013 and then made code update. The app has horizontal usage, zoom in to mine field, different levels, Turkish and English language support.
 
 ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi1.png)            |  ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi2.png) | ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi3.png)| ![Kim 500 Bin İster Ekran Görüntüsü](https://bilalsaim.com/projeler/MayinTarlasi4.png)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
