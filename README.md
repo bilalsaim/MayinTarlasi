@@ -22,7 +22,7 @@ Alışılmış Mayın Tarlası oyununun Android uygulama olarak yazılmış hali
 
 * Mayınlardan kaçınarak boş kareleri bulmak. Tahtayı ne kadar hızlı temizlerseniz, skorunuz o kadar yüksek olur.
 * Mayın tarlasının farklı zorluk düzeylerinde seçebileceğiniz üç standart tahtası vardır. -Acemi: 81 kare, 10 mayın -Deneyimli: 256 kare, 40 mayın -Uzman: 480 kare, 99 mayın
-* Bir mayını açarsanız, oyun sona erer.\n  -Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir. Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız.
+* Bir mayını açarsanız, oyun sona erer. Bir sayı açarsanız, bu sayı etrafını çevreleyen sekiz karede kaç tane mayının gizlendiğini belirtir. Bu bilgi sayesinde hangi yakın karelerin güvenle tıklatılabileceğini anlarsınız.
 * Mayınları işaretleyin. Bir karede mayın gizlendiğinden şüpheleniyorsanız, kareye basılı tutun. Kareye bir bayrak eklenir. (Emin değilseniz, soru işareti eklemek için tekrar basılı tutun.)
 
 ## Yazar
